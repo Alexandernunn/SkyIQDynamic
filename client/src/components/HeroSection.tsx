@@ -53,13 +53,8 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
           <span className="animate-pulse text-primary">|</span>
         </h1>
         
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/90 mb-6 sm:mb-8">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/90 mb-8 sm:mb-10">
           Calls and Conversations 24/7
-        </p>
-        
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">
-          Transform your business with AI-powered voice agents and chatbots that handle calls and conversations 24/7. 
-          Capture every opportunity, close more deals, and scale without limits.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
