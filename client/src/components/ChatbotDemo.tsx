@@ -1,15 +1,13 @@
 import { Card } from '@/components/ui/card';
-import chatbotBackground from '@assets/New Project (6)_1761624295499.jpg';
-import chatbotCardBackground from '@assets/New Project (6)_1761625265054.jpg';
+import chatbotSectionBackground from '@assets/backgroundt_1761626062116.png';
 
 export default function ChatbotDemo() {
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24 px-3 sm:px-4 lg:px-6 overflow-hidden bg-white dark:bg-background">
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-100"
-        style={{ backgroundImage: `url(${chatbotCardBackground})` }}
-      />
-      <div className="relative z-10 max-w-6xl mx-auto">
+    <section 
+      className="py-16 sm:py-20 lg:py-24 px-3 sm:px-4 lg:px-6 bg-cover bg-center"
+      style={{ backgroundImage: `url(${chatbotSectionBackground})` }}
+    >
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 text-foreground">
             Explore Ways We Can Grow
