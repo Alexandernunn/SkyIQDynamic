@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import DashboardDemo from '@/components/DashboardDemo';
 import FloatingChatWidget from '@/components/FloatingChatWidget';
 import FeatureGrid from '@/components/FeatureGrid';
+import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 
@@ -22,6 +23,7 @@ export default function Home() {
         <DashboardDemo />
       </div>
       <FeatureGrid />
+      <FAQSection />
       <CTASection />
       <Footer />
       <FloatingChatWidget />
