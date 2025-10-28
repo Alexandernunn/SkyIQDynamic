@@ -9,8 +9,6 @@ export default function ChatbotDemo() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${chatbotCardBackground})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-background/67 via-background/63 to-background/67" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/71 via-transparent to-transparent" />
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6">
