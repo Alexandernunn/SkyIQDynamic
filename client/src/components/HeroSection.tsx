@@ -54,7 +54,7 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
         </h1>
         
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">
-          Transform your business with AI-powered voice agents that handle calls 24/7. 
+          Transform your business with AI-powered voice agents and chatbots that handle calls and conversations 24/7. 
           Capture every opportunity, close more deals, and scale without limits.
         </p>
         

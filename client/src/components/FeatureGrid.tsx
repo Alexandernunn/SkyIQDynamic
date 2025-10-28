@@ -1,11 +1,16 @@
 import { Card } from '@/components/ui/card';
-import { Phone, MessageSquare, Calendar, BarChart3, Zap, Shield } from 'lucide-react';
+import { Phone, MessageSquare, Calendar, BarChart3, Zap, Shield, Bot } from 'lucide-react';
 
 const features = [
   {
     icon: Phone,
     title: 'Intelligent Call Handling',
     description: 'AI agents answer every call instantly, qualify leads, and book appointments without human intervention.'
+  },
+  {
+    icon: Bot,
+    title: 'AI Chatbots',
+    description: 'Deploy intelligent chatbots on your website to engage visitors, answer questions, and convert leads 24/7.'
   },
   {
     icon: MessageSquare,
