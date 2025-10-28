@@ -4,7 +4,7 @@ import { PlayCircle } from 'lucide-react';
 import heroBackground from '@assets/cc_1761618392882.png';
 import skyiqLogo from '@assets/skyiq-logo (1)_1761617042316.png';
 
-export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }) {
+export default function HeroSection({ onDemoClick, onBookAppointment }: { onDemoClick: () => void; onBookAppointment: () => void }) {
   const [typedText, setTypedText] = useState('');
   const fullText = 'Never Miss a Call Again';
   const [isDeleting, setIsDeleting] = useState(false);
@@ -61,10 +61,10 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
           <Button 
             size="lg" 
             className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 w-full sm:w-auto sm:min-w-[200px]"
-            data-testid="button-get-started"
-            onClick={() => console.log('Get Started clicked')}
+            data-testid="button-book-appointment"
+            onClick={onBookAppointment}
           >
-            Get Started Free
+            Book Appointment
           </Button>
           <Button 
             size="lg" 

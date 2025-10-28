@@ -42,9 +42,10 @@ Preferred communication style: Simple, everyday language.
 **Key Frontend Features**
 - Marketing landing page with hero section, feature grid, and CTA sections
 - Interactive dashboard demo with multiple views (call dashboard, call log, AI agent configuration, bulk caller, business profile)
+- Appointment booking form modal with Supabase integration for lead capture
 - Typing animation effects in hero section
 - Tabbed navigation within dashboard components
-- Mock data for demonstration purposes
+- Mock data for demonstration purposes in dashboard
 - Fully mobile-optimized with touch-friendly controls and scroll indicators
 
 **Mobile Optimization (October 2025)**
@@ -135,6 +136,7 @@ Preferred communication style: Simple, everyday language.
 - **Drizzle ORM** - TypeScript ORM for PostgreSQL
 - **@neondatabase/serverless** - Serverless PostgreSQL driver
 - **connect-pg-simple** - PostgreSQL session store for Express
+- **@supabase/supabase-js** - Supabase client for appointment form data persistence
 
 ### Development Tools
 - **Vite** - Frontend build tool and dev server
@@ -153,3 +155,84 @@ Preferred communication style: Simple, everyday language.
 - Path aliases (@/, @shared/, @assets/) for clean imports
 - Custom Tailwind theme with design tokens
 - Vite configured for SPA with Express middleware in development
+- Environment variables for Supabase configuration (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)
+
+## Supabase Integration (October 2025)
+
+### Overview
+The application uses Supabase as a backend-as-a-service for appointment booking and lead capture. This allows the frontend to remain fully static for Netlify deployment while still collecting form submissions.
+
+### Setup Instructions
+
+1. **Create Supabase Project**
+   - Visit [database.new](https://database.new) or [supabase.com/dashboard](https://supabase.com/dashboard)
+   - Create a new project and save your database password
+
+2. **Create Appointments Table**
+   Run this SQL in the Supabase SQL Editor:
+   ```sql
+   CREATE TABLE appointments (
+     id BIGSERIAL PRIMARY KEY,
+     name TEXT NOT NULL,
+     email TEXT NOT NULL,
+     phone TEXT NOT NULL,
+     business_type TEXT NOT NULL,
+     message TEXT,
+     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+   );
+
+   -- Enable Row Level Security
+   ALTER TABLE appointments ENABLE ROW LEVEL SECURITY;
+
+   -- Allow public to insert appointments
+   CREATE POLICY "Allow public insert"
+   ON public.appointments
+   FOR INSERT
+   TO anon
+   WITH CHECK (true);
+
+   -- Prevent public from reading appointments (admin only)
+   CREATE POLICY "Prevent public read"
+   ON public.appointments
+   FOR SELECT
+   TO anon
+   USING (false);
+   ```
+
+3. **Configure Environment Variables**
+   - Copy `.env.example` to `.env`
+   - Get your credentials from Supabase Dashboard → Project Settings → API
+   - Add your `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`
+
+4. **For Netlify Deployment**
+   - Add the same environment variables in Netlify Dashboard → Site Settings → Environment Variables
+   - Prefix variables with `VITE_` to make them available to the frontend build
+
+### Architecture Details
+
+**Frontend-Only Approach**
+- Supabase client (`@supabase/supabase-js`) runs entirely in the browser
+- No backend server required for form submissions
+- Perfect for static site deployment on Netlify
+
+**Security with Row Level Security (RLS)**
+- Anonymous users can INSERT appointments (submit forms)
+- Anonymous users cannot SELECT appointments (read others' data)
+- Only authenticated admin users can view submitted appointments
+
+**Files Structure**
+- `/client/src/lib/supabase.ts` - Supabase client configuration
+- `/client/src/components/AppointmentFormModal.tsx` - Appointment booking form component
+- `.env.example` - Template for environment variables
+
+**Form Fields**
+- Full Name
+- Email
+- Phone Number
+- Business Type (dropdown with industry options)
+- Message (optional)
+
+### Deployment Considerations
+- Environment variables must be set in Netlify before deployment
+- Supabase free tier supports 500MB database and 50,000 monthly active users
+- Consider adding reCAPTCHA or rate limiting for production use

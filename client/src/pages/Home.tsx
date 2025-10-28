@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import DashboardDemo from '@/components/DashboardDemo';
 import FloatingChatWidget from '@/components/FloatingChatWidget';
+import AppointmentFormModal from '@/components/AppointmentFormModal';
 import FeatureGrid from '@/components/FeatureGrid';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
@@ -11,6 +12,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   const demoRef = useRef<HTMLDivElement>(null);
   const [chatOpen, setChatOpen] = useState(false);
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
 
   const scrollToDemo = () => {
     demoRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -20,10 +22,14 @@ export default function Home() {
     setChatOpen(true);
   };
 
+  const openAppointmentForm = () => {
+    setAppointmentOpen(true);
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation onDemoClick={scrollToDemo} onAskAnythingClick={openChat} />
-      <HeroSection onDemoClick={scrollToDemo} />
+      <HeroSection onDemoClick={scrollToDemo} onBookAppointment={openAppointmentForm} />
       <div ref={demoRef}>
         <DashboardDemo />
       </div>
@@ -32,6 +38,7 @@ export default function Home() {
       <CTASection />
       <Footer />
       <FloatingChatWidget isOpen={chatOpen} setIsOpen={setChatOpen} />
+      <AppointmentFormModal isOpen={appointmentOpen} setIsOpen={setAppointmentOpen} />
     </div>
   );
 }
