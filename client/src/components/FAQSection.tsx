@@ -9,6 +9,10 @@ import backgroundImage from "@assets/him_1761689734913.png";
 export default function FAQSection() {
   const faqs = [
     {
+      question: "What does SkyIQ offer?",
+      answer: "SkyIQ provides 24/7 AI receptionists that answer your business calls with natural, human-like conversations. Our AI agents handle customer questions, book appointments, and manage inquiries so you can focus on running your business."
+    },
+    {
       question: "How is this different from a typical receptionist?",
       answer: "Unlike a traditional receptionist, SkyIQ's AI agents work 24/7, never miss a call, and cost a fraction of what a full-time employee would. You get round-the-clock coverage without the payroll or scheduling headaches."
     },
@@ -49,7 +53,7 @@ export default function FAQSection() {
           </p>
         </div>
 
-        <div className="p-6 sm:p-8 shadow-md">
+        <div className="p-6 sm:p-8 shadow-lg">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
