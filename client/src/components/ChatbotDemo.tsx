@@ -23,10 +23,10 @@ export default function ChatbotDemo() {
 
         <div className="flex justify-center">
           <Card 
-            className="overflow-hidden p-4 sm:p-6 border-2 w-full max-w-lg bg-cover bg-center"
+            className="overflow-hidden p-8 sm:p-12 md:p-16 border-2 w-full max-w-4xl bg-cover bg-center"
             style={{ backgroundImage: `url(${chatbotCardBackground})` }}
           >
-            <div className="relative w-full h-[720px] rounded-lg overflow-hidden border border-border/50">
+            <div className="relative w-full max-w-lg mx-auto h-[720px] rounded-lg overflow-hidden border border-border/50 shadow-2xl">
               <iframe
                 src="https://demo.skyiq.cloud"
                 title="SkyIQ AI Chatbot Demo"
