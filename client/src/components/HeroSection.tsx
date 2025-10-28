@@ -46,7 +46,7 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
       <div className="absolute inset-0 bg-gradient-to-t from-background/71 via-transparent to-transparent" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight md:whitespace-nowrap">
           <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
             {typedText}
           </span>
