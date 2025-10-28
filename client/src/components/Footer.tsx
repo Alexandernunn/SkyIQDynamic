@@ -1,4 +1,4 @@
-import { PhoneCall } from 'lucide-react';
+import skyiqLogo from '@assets/skyiq-logo_1761616777386.png';
 
 export default function Footer() {
   return (
@@ -7,10 +7,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 bg-primary rounded-lg">
-                <PhoneCall className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">SkyIQ</span>
+              <img 
+                src={skyiqLogo} 
+                alt="SkyIQ" 
+                className="h-8 w-auto"
+                data-testid="img-footer-logo"
+              />
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
               AI-powered voice agents that help businesses capture every opportunity and scale without limits.

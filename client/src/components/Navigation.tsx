@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { PhoneCall, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import skyiqLogo from '@assets/skyiq-logo_1761616777386.png';
 
 export default function Navigation({ onDemoClick }: { onDemoClick: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,10 +11,12 @@ export default function Navigation({ onDemoClick }: { onDemoClick: () => void })
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <div className="p-2 bg-primary rounded-lg">
-              <PhoneCall className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold">SkyIQ</span>
+            <img 
+              src={skyiqLogo} 
+              alt="SkyIQ" 
+              className="h-8 w-auto"
+              data-testid="img-nav-logo"
+            />
           </div>
 
           <div className="hidden md:flex items-center gap-8">

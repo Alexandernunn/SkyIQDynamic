@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { PhoneCall, PlayCircle } from 'lucide-react';
+import { PlayCircle } from 'lucide-react';
 import heroBackground from '@assets/generated_images/AI_technology_hero_background_784392fd.png';
+import skyiqLogo from '@assets/skyiq-logo_1761616777386.png';
 
 export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }) {
   const [typedText, setTypedText] = useState('');
@@ -45,9 +46,13 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-          <PhoneCall className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">AI Voice Agents</span>
+        <div className="mb-12 flex justify-center">
+          <img 
+            src={skyiqLogo} 
+            alt="SkyIQ" 
+            className="h-24 md:h-32 w-auto"
+            data-testid="img-logo"
+          />
         </div>
         
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
