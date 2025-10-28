@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import skyiqLogo from '@assets/skyiq-logo_1761616777386.png';
+import skyiqLogo from '@assets/skyiq-logo (1)_1761617042316.png';
 
 export default function Navigation({ onDemoClick }: { onDemoClick: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

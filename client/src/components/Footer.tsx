@@ -1,4 +1,4 @@
-import skyiqLogo from '@assets/skyiq-logo_1761616777386.png';
+import skyiqLogo from '@assets/skyiq-logo (1)_1761617042316.png';
 
 export default function Footer() {
   return (

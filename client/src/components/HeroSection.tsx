@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { PlayCircle } from 'lucide-react';
 import heroBackground from '@assets/generated_images/AI_technology_hero_background_784392fd.png';
-import skyiqLogo from '@assets/skyiq-logo_1761616777386.png';
+import skyiqLogo from '@assets/skyiq-logo (1)_1761617042316.png';
 
 export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }) {
   const [typedText, setTypedText] = useState('');
