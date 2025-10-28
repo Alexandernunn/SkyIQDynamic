@@ -20,18 +20,20 @@ export default function ChatbotDemo() {
           </p>
         </div>
 
-        <Card className="overflow-hidden p-0 border-2">
-          <div className="relative w-full" style={{ paddingBottom: '133%' }}>
-            <iframe
-              src="https://demo.skyiq.cloud"
-              title="SkyIQ AI Chatbot Demo"
-              className="absolute top-0 left-0 w-full h-full"
-              allow="microphone; camera; autoplay"
-              loading="lazy"
-              data-testid="iframe-chatbot-demo"
-            />
-          </div>
-        </Card>
+        <div className="flex justify-center">
+          <Card className="overflow-hidden p-0 border-2 w-full max-w-md">
+            <div className="relative w-full h-[600px]">
+              <iframe
+                src="https://demo.skyiq.cloud"
+                title="SkyIQ AI Chatbot Demo"
+                className="absolute top-0 left-0 w-full h-full"
+                allow="microphone; camera; autoplay"
+                loading="lazy"
+                data-testid="iframe-chatbot-demo"
+              />
+            </div>
+          </Card>
+        </div>
 
         <p className="text-center text-xs sm:text-sm text-muted-foreground mt-4">
           This is a live interactive demo. Try asking questions or exploring the interface.
