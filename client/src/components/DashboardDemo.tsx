@@ -22,18 +22,18 @@ export default function DashboardDemo() {
   const [activeView, setActiveView] = useState<DashboardView>('home');
 
   return (
-    <section className="py-12 sm:py-24 px-3 sm:px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-6 sm:mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">
+    <section className="py-8 sm:py-16 lg:py-20 px-3 sm:px-4 lg:px-6 bg-background">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
             Live Dashboard Demo
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground max-w-xl mx-auto px-2">
             Explore your AI voice agent dashboard. Click through the different sections to see how you'll manage calls, configure your agent, and track performance.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-card rounded-lg border border-border overflow-hidden scale-90 sm:scale-95 lg:scale-100 origin-top" style={{ minHeight: '500px' }}>
+        <div className="bg-white dark:bg-card rounded-lg border border-border overflow-hidden w-full max-h-[70vh]">
           <div className="flex relative">
             {/* Sidebar - always visible on desktop, hidden on mobile */}
             <aside className="hidden lg:block lg:w-72 h-full border-r border-border bg-muted/10 p-6">
@@ -71,21 +71,21 @@ export default function DashboardDemo() {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 p-3 sm:p-4 md:p-6 lg:p-8 bg-background">
+            <main className="flex-1 p-2 sm:p-3 md:p-4 lg:p-6 bg-background overflow-auto max-h-[70vh]">
               {/* Mobile Navigation Tabs */}
-              <div className="lg:hidden mb-4 border-b border-border overflow-x-auto">
-                <div className="flex gap-2 pb-3 min-w-max">
+              <div className="lg:hidden mb-3 border-b border-border overflow-x-auto">
+                <div className="flex gap-1 sm:gap-2 pb-2 min-w-max">
                   {menuItems.map((item) => (
                     <Button
                       key={item.id}
                       variant={activeView === item.id ? 'secondary' : 'ghost'}
                       size="sm"
-                      className="flex-shrink-0"
+                      className="flex-shrink-0 text-xs px-2 py-1 h-8"
                       onClick={() => setActiveView(item.id)}
                       data-testid={`nav-${item.id}`}
                     >
-                      <item.icon className="w-4 h-4 mr-2" />
-                      <span className="text-xs">{item.label}</span>
+                      <item.icon className="w-3 h-3 mr-1" />
+                      <span>{item.label}</span>
                     </Button>
                   ))}
                 </div>
