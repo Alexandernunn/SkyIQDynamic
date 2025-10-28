@@ -26,7 +26,7 @@ export default function DashboardDemo() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-4 sm:mb-6 lg:mb-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
-            Live Dashboard Demo
+            Dashboard Demo
           </h2>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground max-w-xl mx-auto px-2">
             Explore your AI voice agent dashboard. Click through the different sections to see how you'll manage calls, configure your agent, and track performance.
