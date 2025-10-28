@@ -14,7 +14,7 @@ export default function Navigation({ onDemoClick }: { onDemoClick: () => void })
             <img 
               src={skyiqLogo} 
               alt="SkyIQ" 
-              className="h-8 w-auto"
+              className="h-12 w-auto"
               data-testid="img-nav-logo"
             />
           </div>
