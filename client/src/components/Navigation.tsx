@@ -45,13 +45,6 @@ export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemo
             >
               Pricing
             </a>
-            <Button 
-              variant="default" 
-              data-testid="button-nav-start"
-              onClick={onAskAnythingClick}
-            >
-              Ask Anything
-            </Button>
           </div>
 
           <button 
@@ -90,16 +83,6 @@ export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemo
             >
               Pricing
             </a>
-            <Button 
-              variant="default" 
-              className="w-full"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onAskAnythingClick();
-              }}
-            >
-              Ask Anything
-            </Button>
           </div>
         )}
       </div>
