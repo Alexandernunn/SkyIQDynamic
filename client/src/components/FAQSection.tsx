@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import backgroundImage from "@assets/him_1761689734913.png";
 
 export default function FAQSection() {
   const faqs = [
@@ -42,10 +43,10 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-slate-200 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-0" />
-      
+    <section 
+      className="py-24 relative overflow-hidden"
+      style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
