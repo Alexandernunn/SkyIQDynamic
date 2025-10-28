@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Home, Phone, Mic, Users as UsersIcon, Building2, Menu, X } from 'lucide-react';
+import { Home, Phone, Mic, Users as UsersIcon, Building2 } from 'lucide-react';
 import CallDashboardView from './dashboard/CallDashboardView';
 import CallLogView from './dashboard/CallLogView';
 import AIAgentView from './dashboard/AIAgentView';
@@ -20,41 +20,23 @@ const menuItems = [
 
 export default function DashboardDemo() {
   const [activeView, setActiveView] = useState<DashboardView>('home');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <section className="py-24 px-6 bg-background">
+    <section className="py-12 sm:py-24 px-3 sm:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">
             Live Dashboard Demo
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Explore your AI voice agent dashboard. Click through the different sections to see how you'll manage calls, configure your agent, and track performance.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-card rounded-lg border border-border overflow-hidden" style={{ minHeight: '600px' }}>
+        <div className="bg-white dark:bg-card rounded-lg border border-border overflow-hidden scale-90 sm:scale-95 lg:scale-100 origin-top" style={{ minHeight: '500px' }}>
           <div className="flex relative">
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-card border border-border rounded-md min-h-[48px] min-w-[48px] flex items-center justify-center"
-              data-testid="button-mobile-sidebar-toggle"
-            >
-              {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-
-            {/* Sidebar */}
-            <aside className={`
-              ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-              lg:translate-x-0
-              fixed lg:static
-              w-72 h-full
-              border-r border-border bg-muted/10 p-4 sm:p-6
-              transition-transform duration-300 ease-in-out
-              z-40
-            `}>
+            {/* Sidebar - always visible on desktop, hidden on mobile */}
+            <aside className="hidden lg:block lg:w-72 h-full border-r border-border bg-muted/10 p-6">
               <div className="mb-8">
                 <img 
                   src={skyiqLogo} 
@@ -68,10 +50,7 @@ export default function DashboardDemo() {
                     key={item.id}
                     variant={activeView === item.id ? 'secondary' : 'ghost'}
                     className="w-full justify-start gap-3 hover-elevate h-12 text-base"
-                    onClick={() => {
-                      setActiveView(item.id);
-                      setSidebarOpen(false);
-                    }}
+                    onClick={() => setActiveView(item.id)}
                     data-testid={`nav-${item.id}`}
                   >
                     <item.icon className="w-5 h-5" />
@@ -91,16 +70,26 @@ export default function DashboardDemo() {
               </div>
             </aside>
 
-            {/* Overlay for mobile */}
-            {sidebarOpen && (
-              <div
-                className="lg:hidden fixed inset-0 bg-background/80 backdrop-blur-sm z-30"
-                onClick={() => setSidebarOpen(false)}
-              />
-            )}
-
             {/* Main Content */}
-            <main className="flex-1 p-4 sm:p-6 lg:p-8 bg-background">
+            <main className="flex-1 p-3 sm:p-4 md:p-6 lg:p-8 bg-background">
+              {/* Mobile Navigation Tabs */}
+              <div className="lg:hidden mb-4 border-b border-border overflow-x-auto">
+                <div className="flex gap-2 pb-3 min-w-max">
+                  {menuItems.map((item) => (
+                    <Button
+                      key={item.id}
+                      variant={activeView === item.id ? 'secondary' : 'ghost'}
+                      size="sm"
+                      className="flex-shrink-0"
+                      onClick={() => setActiveView(item.id)}
+                      data-testid={`nav-${item.id}`}
+                    >
+                      <item.icon className="w-4 h-4 mr-2" />
+                      <span className="text-xs">{item.label}</span>
+                    </Button>
+                  ))}
+                </div>
+              </div>
               {activeView === 'home' && <CallLogView />}
               {activeView === 'call-dashboard' && <CallDashboardView />}
               {activeView === 'call-log' && <CallLogView />}
