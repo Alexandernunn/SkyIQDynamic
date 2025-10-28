@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/card';
 import chatbotBackground from '@assets/New Project (6)_1761624295499.jpg';
+import chatbotCardBackground from '@assets/New Project (6)_1761625265054.jpg';
 
 export default function ChatbotDemo() {
   return (
@@ -21,7 +22,11 @@ export default function ChatbotDemo() {
         </div>
 
         <div className="flex justify-center">
-          <Card className="overflow-hidden p-0 border-2 w-full max-w-lg">
+          <Card className="overflow-hidden p-0 border-2 w-full max-w-lg relative">
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${chatbotCardBackground})` }}
+            />
             <div className="relative w-full h-[720px]">
               <iframe
                 src="https://demo.skyiq.cloud"
