@@ -15,7 +15,7 @@ export default function CallLogView() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold mb-1">Call Log</h1>
+        <h1 className="text-2xl font-bold mb-1">Sky IQ Dashboard Example</h1>
       </div>
 
       {/* Call Log Table */}
