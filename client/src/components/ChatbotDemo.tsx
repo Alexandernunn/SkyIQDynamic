@@ -4,7 +4,7 @@ import chatbotSectionBackground from '@assets/backgroundt_1761626062116.png';
 export default function ChatbotDemo() {
   return (
     <section 
-      className="py-16 sm:py-20 lg:py-24 px-3 sm:px-4 lg:px-6 bg-cover bg-center"
+      className="py-16 sm:py-20 lg:py-24 px-3 sm:px-4 lg:px-6 bg-white bg-cover bg-left"
       style={{ backgroundImage: `url(${chatbotSectionBackground})` }}
     >
       <div className="max-w-6xl mx-auto">
