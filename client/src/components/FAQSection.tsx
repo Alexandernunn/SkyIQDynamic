@@ -9,36 +9,24 @@ import backgroundImage from "@assets/him_1761689734913.png";
 export default function FAQSection() {
   const faqs = [
     {
-      question: "How does the AI voice agent work?",
-      answer: "Our AI voice agents use advanced natural language processing to understand caller intent, respond naturally, and handle conversations just like a human receptionist. They can answer questions, qualify leads, book appointments, and transfer calls when needed - all while learning from every interaction."
+      question: "How is this different from a typical receptionist?",
+      answer: "Unlike a traditional receptionist, SkyIQ's AI agents work 24/7, never miss a call, and cost a fraction of what a full-time employee would. You get round-the-clock coverage without the payroll or scheduling headaches."
     },
     {
-      question: "What industries do you serve?",
-      answer: "We specialize in service-based businesses including med spas, real estate agencies, contractors, insurance agencies, dental offices, law firms, and other businesses that receive high volumes of phone calls. Our AI adapts to your industry's specific terminology and workflows."
+      question: "Can the AI be customized for my business?",
+      answer: "Yes! SkyIQ's AI can be fully tailored to your business, including your tone, FAQs, scheduling system, and branding."
     },
     {
-      question: "How long does it take to set up?",
-      answer: "Most businesses are up and running within 24-48 hours. We'll work with you to configure your AI agent with your business information, services, pricing, and availability. You can start with a simple setup and add more advanced features as you go."
+      question: "What happens if a customer needs to speak to a real person?",
+      answer: "If needed, SkyIQ can transfer calls or send instant notifications to your team, ensuring important calls reach the right person."
     },
     {
-      question: "Can the AI handle complex questions?",
-      answer: "Yes! Our AI is trained to handle nuanced conversations, understand context, and provide detailed answers about your services. If it encounters a question it can't answer confidently, it will smoothly transfer the call to your team or take a message."
+      question: "Can I use my business's phone number?",
+      answer: "Yes! You can keep your existing phone number, or we can set up a new dedicated number for your SkyIQ assistant, it's completely up to you."
     },
     {
-      question: "What happens to missed calls?",
-      answer: "With SkyIQ, there are no more missed calls. Our AI answers 24/7, even during holidays and after hours. Every caller gets immediate attention, ensuring you never lose a potential customer to voicemail again."
-    },
-    {
-      question: "How much does it cost?",
-      answer: "Our pricing is designed to be significantly more affordable than hiring additional staff. Plans start at $299/month with unlimited calls. Contact us for a custom quote based on your specific needs and call volume."
-    },
-    {
-      question: "Can I customize what the AI says?",
-      answer: "Absolutely! You have full control over your AI agent's personality, tone, and responses. You can customize greetings, FAQs, service descriptions, and even how it handles specific scenarios. Your AI represents your brand exactly how you want."
-    },
-    {
-      question: "Does it integrate with my existing systems?",
-      answer: "Yes, SkyIQ integrates with popular CRM systems, scheduling platforms, and business tools. We can sync with your calendar, update your CRM automatically, and work seamlessly with your existing phone system."
+      question: "How is this different from phone tree systems?",
+      answer: "Unlike traditional phone menus, SkyIQ uses natural conversation instead of button prompts. Callers can just speak normally, and the AI understands, responds, and handles tasks instantly, no waiting through menus or pressing numbers."
     }
   ];
 
@@ -61,7 +49,7 @@ export default function FAQSection() {
           </p>
         </div>
 
-        <div className="p-6 sm:p-8">
+        <div className="p-6 sm:p-8 shadow-md">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
