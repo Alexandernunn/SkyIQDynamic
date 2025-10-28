@@ -45,23 +45,23 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
       <div className="absolute inset-0 bg-gradient-to-br from-background/67 via-background/63 to-background/67" />
       <div className="absolute inset-0 bg-gradient-to-t from-background/71 via-transparent to-transparent" />
       
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight whitespace-nowrap">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
           <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
             {typedText}
           </span>
           <span className="animate-pulse text-primary">|</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">
           Transform your business with AI-powered voice agents that handle calls 24/7. 
           Capture every opportunity, close more deals, and scale without limits.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
           <Button 
             size="lg" 
-            className="text-lg px-8 h-14 min-w-[200px]"
+            className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 w-full sm:w-auto sm:min-w-[200px]"
             data-testid="button-get-started"
             onClick={() => console.log('Get Started clicked')}
           >
@@ -70,16 +70,16 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
           <Button 
             size="lg" 
             variant="outline" 
-            className="text-lg px-8 h-14 min-w-[200px] backdrop-blur-sm bg-background/50"
+            className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 w-full sm:w-auto sm:min-w-[200px] backdrop-blur-sm bg-background/50"
             data-testid="button-view-demo"
             onClick={onDemoClick}
           >
-            <PlayCircle className="w-5 h-5 mr-2" />
+            <PlayCircle className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
             View Live Demo
           </Button>
         </div>
         
-        <div className="mt-16 flex items-center justify-center gap-8 text-sm text-muted-foreground">
+        <div className="mt-8 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span>24/7 Availability</span>
