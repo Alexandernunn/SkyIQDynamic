@@ -28,7 +28,7 @@ export default function Home() {
         <DashboardDemo />
       </div>
       <FeatureGrid />
-      <FAQSection />
+      <FAQSection onAskAnythingClick={openChat} />
       <CTASection />
       <Footer />
       <FloatingChatWidget isOpen={chatOpen} setIsOpen={setChatOpen} />

@@ -4,9 +4,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import backgroundImage from "@assets/him_1761689734913.png";
 
-export default function FAQSection() {
+export default function FAQSection({ onAskAnythingClick }: { onAskAnythingClick: () => void }) {
   const faqs = [
     {
       question: "What does SkyIQ offer?",
@@ -78,13 +79,13 @@ export default function FAQSection() {
           <p className="text-gray-600 mb-4">
             Still have questions?
           </p>
-          <a
-            href="#contact"
+          <Button
+            onClick={onAskAnythingClick}
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
             data-testid="button-contact-faq"
           >
-            Get in Touch
-          </a>
+            Ask Anything
+          </Button>
         </div>
       </div>
     </section>
