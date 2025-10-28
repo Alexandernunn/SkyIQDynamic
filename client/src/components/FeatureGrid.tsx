@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Phone, MessageSquare, Calendar, BarChart3, Zap, Bot } from 'lucide-react';
+import robotBackground from '@assets/xx12_1761627512805.jpg';
 
 const features = [
   {
@@ -38,12 +39,7 @@ export default function FeatureGrid() {
   return (
     <section 
       className="py-24 px-6 bg-cover bg-center bg-no-repeat min-h-screen"
-      style={{ 
-        backgroundImage: `url('/attached_assets/xx12_1761627512805.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      style={{ backgroundImage: `url(${robotBackground})` }}
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
