@@ -13,14 +13,13 @@ type DashboardView = 'home' | 'call-dashboard' | 'call-log' | 'ai-agent' | 'bulk
 const menuItems = [
   { id: 'home' as DashboardView, label: 'Home', icon: Home },
   { id: 'call-dashboard' as DashboardView, label: 'Call Dashboard', icon: Phone },
-  { id: 'call-log' as DashboardView, label: 'Call Log', icon: Phone },
   { id: 'ai-agent' as DashboardView, label: 'SkyIQ AI Agent', icon: Mic },
   { id: 'bulk-caller' as DashboardView, label: 'Bulk Caller', icon: UsersIcon },
   { id: 'business-profile' as DashboardView, label: 'Business Profile', icon: Building2 },
 ];
 
 export default function DashboardDemo() {
-  const [activeView, setActiveView] = useState<DashboardView>('call-dashboard');
+  const [activeView, setActiveView] = useState<DashboardView>('home');
 
   return (
     <section className="py-24 px-6 bg-background">
@@ -74,12 +73,7 @@ export default function DashboardDemo() {
 
             {/* Main Content */}
             <main className="flex-1 p-8 bg-background">
-              {activeView === 'home' && (
-                <div className="space-y-6">
-                  <h1 className="text-3xl font-bold">Welcome to SkyIQ</h1>
-                  <p className="text-muted-foreground">Select a section from the sidebar to get started.</p>
-                </div>
-              )}
+              {activeView === 'home' && <CallLogView />}
               {activeView === 'call-dashboard' && <CallDashboardView />}
               {activeView === 'call-log' && <CallLogView />}
               {activeView === 'ai-agent' && <AIAgentView />}
