@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Download, Search } from 'lucide-react';
+import { Download, Search, ChevronRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 
 // Mock data matching the screenshot
@@ -55,6 +55,22 @@ const mockCalls = [
 
 export default function CallDashboardView() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [showScrollHint, setShowScrollHint] = useState(true);
+  const tableRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tableRef.current && tableRef.current.scrollLeft > 10) {
+        setShowScrollHint(false);
+      }
+    };
+
+    const tableElement = tableRef.current;
+    if (tableElement) {
+      tableElement.addEventListener('scroll', handleScroll);
+      return () => tableElement.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -81,8 +97,17 @@ export default function CallDashboardView() {
         </div>
       </div>
 
-      <div className="border rounded-lg overflow-x-auto bg-card">
-        <table className="w-full min-w-[800px]">
+      <div className="relative">
+        {showScrollHint && (
+          <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+            <div className="bg-gradient-to-l from-background via-background/80 to-transparent pr-4 pl-12 py-4 flex items-center gap-2 animate-pulse">
+              <span className="text-xs font-medium text-muted-foreground">Swipe</span>
+              <ChevronRight className="w-4 h-4 text-muted-foreground" />
+            </div>
+          </div>
+        )}
+        <div ref={tableRef} className="border rounded-lg overflow-x-auto bg-card">
+          <table className="w-full min-w-[800px]">
           <thead className="bg-muted/50 border-b">
             <tr>
               <th className="text-left py-3 px-4 font-medium text-sm text-muted-foreground">Date & Time</th>
@@ -135,6 +160,7 @@ export default function CallDashboardView() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

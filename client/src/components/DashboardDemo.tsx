@@ -50,8 +50,8 @@ export default function DashboardDemo() {
               ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
               lg:translate-x-0
               fixed lg:static
-              w-64 h-full
-              border-r border-border bg-muted/10 p-6
+              w-72 h-full
+              border-r border-border bg-muted/10 p-4 sm:p-6
               transition-transform duration-300 ease-in-out
               z-40
             `}>
@@ -62,20 +62,20 @@ export default function DashboardDemo() {
                   className="h-8 w-auto mb-2"
                 />
               </div>
-              <nav className="space-y-1">
+              <nav className="space-y-2">
                 {menuItems.map((item) => (
                   <Button
                     key={item.id}
                     variant={activeView === item.id ? 'secondary' : 'ghost'}
-                    className="w-full justify-start gap-3 hover-elevate"
+                    className="w-full justify-start gap-3 hover-elevate h-12 text-base"
                     onClick={() => {
                       setActiveView(item.id);
                       setSidebarOpen(false);
                     }}
                     data-testid={`nav-${item.id}`}
                   >
-                    <item.icon className="w-4 h-4" />
-                    <span className="text-sm">{item.label}</span>
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
                   </Button>
                 ))}
               </nav>

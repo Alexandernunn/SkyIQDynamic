@@ -1,8 +1,9 @@
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
-import { Upload, Link as LinkIcon } from 'lucide-react';
+import { Upload, Link as LinkIcon, ChevronRight } from 'lucide-react';
 
 const mockCallLog = [
   { id: 1, date: '10/27/2025', time: '12:12 AM', number: '+19556237266', duration: '5m 17s', status: 'completed' },
@@ -12,6 +13,23 @@ const mockCallLog = [
 ];
 
 export default function CallLogView() {
+  const [showScrollHint, setShowScrollHint] = useState(true);
+  const tableRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tableRef.current && tableRef.current.scrollLeft > 10) {
+        setShowScrollHint(false);
+      }
+    };
+
+    const tableElement = tableRef.current;
+    if (tableElement) {
+      tableElement.addEventListener('scroll', handleScroll);
+      return () => tableElement.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
   return (
     <div className="space-y-8">
       <div>
@@ -19,8 +37,17 @@ export default function CallLogView() {
       </div>
 
       {/* Call Log Table */}
-      <div className="border rounded-lg overflow-x-auto bg-card">
-        <table className="w-full min-w-[600px]">
+      <div className="relative">
+        {showScrollHint && (
+          <div className="sm:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+            <div className="bg-gradient-to-l from-background via-background/80 to-transparent pr-4 pl-12 py-4 flex items-center gap-2 animate-pulse">
+              <span className="text-xs font-medium text-muted-foreground">Swipe</span>
+              <ChevronRight className="w-4 h-4 text-muted-foreground" />
+            </div>
+          </div>
+        )}
+        <div ref={tableRef} className="border rounded-lg overflow-x-auto bg-card">
+          <table className="w-full min-w-[600px]">
           <thead className="bg-muted/50 border-b">
             <tr>
               <th className="text-left py-3 px-4 font-medium text-sm text-muted-foreground">Date</th>
@@ -48,6 +75,7 @@ export default function CallLogView() {
         </table>
         <div className="p-4 text-center border-t">
           <Button variant="ghost" size="sm" data-testid="button-view-all-calls">View All Calls</Button>
+        </div>
         </div>
       </div>
 
