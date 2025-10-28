@@ -17,19 +17,19 @@ export default function AIAgentView() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold mb-1">SkyIQ AI Voice Agent</h1>
-        <p className="text-sm text-muted-foreground">Test and configure your AI voice agent</p>
+        <h1 className="text-xl sm:text-2xl font-bold mb-1">SkyIQ AI Voice Agent</h1>
+        <p className="text-xs sm:text-sm text-muted-foreground">Test and configure your AI voice agent</p>
       </div>
 
       <Tabs defaultValue="preview" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 max-w-md">
-          <TabsTrigger value="preview" data-testid="tab-preview">Preview</TabsTrigger>
-          <TabsTrigger value="configuration" data-testid="tab-configuration">Configuration</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 h-12">
+          <TabsTrigger value="preview" className="text-sm sm:text-base" data-testid="tab-preview">Preview</TabsTrigger>
+          <TabsTrigger value="configuration" className="text-sm sm:text-base" data-testid="tab-configuration">Configuration</TabsTrigger>
         </TabsList>
 
         <TabsContent value="preview" className="space-y-6 mt-6">
-          <div className="border rounded-lg p-8 bg-card">
-            <div className="max-w-md">
+          <div className="border rounded-lg p-4 sm:p-6 md:p-8 bg-card">
+            <div className="max-w-md mx-auto">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-primary/10 rounded-lg">
                   <Phone className="w-6 h-6 text-primary" />
@@ -48,18 +48,18 @@ export default function AIAgentView() {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     placeholder="+1 (555) 123-4567"
+                    className="h-12 text-base"
                     data-testid="input-phone-number"
                   />
                 </div>
 
                 <Button 
-                  className="w-full"
-                  size="lg"
+                  className="w-full h-14 text-base"
                   onClick={handleTestAgent}
                   disabled={isCalling}
                   data-testid="button-test-agent"
                 >
-                  <Phone className="w-4 h-4 mr-2" />
+                  <Phone className="w-5 h-5 mr-2" />
                   {isCalling ? 'Calling...' : 'Test Agent'}
                 </Button>
 
@@ -86,13 +86,13 @@ export default function AIAgentView() {
         </TabsContent>
 
         <TabsContent value="configuration" className="space-y-6 mt-6">
-          <div className="border rounded-lg p-6 bg-card space-y-6">
+          <div className="border rounded-lg p-4 sm:p-6 bg-card space-y-6">
             <div>
-              <h3 className="font-semibold mb-4">Voice Settings</h3>
-              <div className="grid gap-4">
+              <h3 className="font-semibold mb-4 text-base sm:text-lg">Voice Settings</h3>
+              <div className="space-y-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Voice Model</label>
-                  <select className="w-full border rounded-md px-3 py-2 bg-background" data-testid="select-voice-model">
+                  <select className="w-full border rounded-md px-4 py-3 bg-background h-12 text-base" data-testid="select-voice-model">
                     <option>Professional Female - English (US)</option>
                     <option>Professional Male - English (US)</option>
                     <option>Friendly Female - English (US)</option>
@@ -101,7 +101,7 @@ export default function AIAgentView() {
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Response Style</label>
-                  <select className="w-full border rounded-md px-3 py-2 bg-background" data-testid="select-response-style">
+                  <select className="w-full border rounded-md px-4 py-3 bg-background h-12 text-base" data-testid="select-response-style">
                     <option>Friendly & Professional</option>
                     <option>Formal & Business</option>
                     <option>Casual & Conversational</option>
@@ -112,14 +112,14 @@ export default function AIAgentView() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">Availability</h3>
+              <h3 className="font-semibold mb-4 text-base sm:text-lg">Availability</h3>
               <div className="p-4 bg-muted/50 rounded-lg">
                 <p className="text-sm font-medium mb-1">Business Hours</p>
                 <p className="text-sm text-muted-foreground">24/7 - Always Available</p>
               </div>
             </div>
 
-            <Button className="w-full" data-testid="button-save-config">
+            <Button className="w-full h-12 text-base" data-testid="button-save-config">
               Save Configuration
             </Button>
           </div>

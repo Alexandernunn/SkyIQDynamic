@@ -80,7 +80,7 @@ export default function CallDashboardView() {
           <p className="text-xs sm:text-sm text-muted-foreground">Monitor and manage your AI voice agent call history</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
-          <Button variant="outline" size="sm" className="w-full sm:w-auto" data-testid="button-download">
+          <Button variant="outline" className="w-full sm:w-auto h-12" data-testid="button-download">
             <Download className="w-4 h-4 mr-2" />
             Download CSV
           </Button>
@@ -88,7 +88,7 @@ export default function CallDashboardView() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               placeholder="Search calls"
-              className="pl-9 w-full sm:w-48 md:w-64"
+              className="pl-9 w-full sm:w-48 md:w-64 h-12"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               data-testid="input-search"
@@ -139,7 +139,7 @@ export default function CallDashboardView() {
                   <div className="flex gap-2">
                     <Button 
                       variant="outline" 
-                      size="sm"
+                      className="h-10"
                       onClick={() => console.log('View more:', call.id)}
                       data-testid={`button-view-${call.id}`}
                     >
@@ -147,8 +147,7 @@ export default function CallDashboardView() {
                     </Button>
                     <Button 
                       variant="ghost" 
-                      size="sm"
-                      className="text-destructive hover:text-destructive"
+                      className="text-destructive hover:text-destructive h-10"
                       onClick={() => console.log('Delete:', call.id)}
                       data-testid={`button-delete-${call.id}`}
                     >

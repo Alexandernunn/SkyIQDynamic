@@ -39,10 +39,10 @@ export default function DashboardDemo() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-card border border-border rounded-md"
+              className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-card border border-border rounded-md min-h-[48px] min-w-[48px] flex items-center justify-center"
               data-testid="button-mobile-sidebar-toggle"
             >
-              {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
             {/* Sidebar */}
@@ -82,8 +82,7 @@ export default function DashboardDemo() {
               <div className="mt-8 pt-8 border-t border-border">
                 <Button 
                   variant="outline" 
-                  size="sm" 
-                  className="w-full text-destructive hover:text-destructive"
+                  className="w-full text-destructive hover:text-destructive h-12"
                   data-testid="button-logout"
                   onClick={() => console.log('Log out clicked')}
                 >

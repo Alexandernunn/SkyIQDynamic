@@ -74,42 +74,42 @@ export default function CallLogView() {
           </tbody>
         </table>
         <div className="p-4 text-center border-t">
-          <Button variant="ghost" size="sm" data-testid="button-view-all-calls">View All Calls</Button>
+          <Button variant="ghost" className="h-10" data-testid="button-view-all-calls">View All Calls</Button>
         </div>
         </div>
       </div>
 
       {/* Business Context Section */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Business Context</h2>
-          <Button variant="outline" size="sm" data-testid="button-upload-file">Upload File</Button>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <h2 className="text-base sm:text-lg font-semibold">Business Context</h2>
+          <Button variant="outline" className="w-full sm:w-auto h-12" data-testid="button-upload-file">Upload File</Button>
         </div>
         <p className="text-sm text-muted-foreground">
           Help us personalize your AI's behavior. Upload any files, links, or notes that help explain your business, services, or customer experience.
         </p>
         
-        <div className="border-2 border-dashed rounded-lg p-12 text-center bg-muted/20">
-          <Upload className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground mb-1">Upload PDF's, DOCX, .doc, or PNG files (5MB)</p>
+        <div className="border-2 border-dashed rounded-lg p-6 sm:p-12 text-center bg-muted/20 touch-none">
+          <Upload className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 text-muted-foreground" />
+          <p className="text-xs sm:text-sm text-muted-foreground mb-1">Upload PDF's, DOCX, .doc, or PNG files (5MB)</p>
         </div>
       </div>
 
       {/* Links Section */}
       <div className="space-y-4">
-        <h2 className="text-lg font-semibold">Links</h2>
-        <div className="border rounded-lg p-8 text-center bg-muted/20">
+        <h2 className="text-base sm:text-lg font-semibold">Links</h2>
+        <div className="border rounded-lg p-6 sm:p-8 text-center bg-muted/20">
           <LinkIcon className="w-8 h-8 mx-auto mb-3 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground mb-4">Add links to websites, social media, or other resources</p>
-          <Button size="sm" data-testid="button-add-link">Add</Button>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-4">Add links to websites, social media, or other resources</p>
+          <Button className="w-full sm:w-auto h-12" data-testid="button-add-link">Add</Button>
         </div>
       </div>
 
       {/* Notes Section */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Notes & Instructions</h2>
-          <Button variant="outline" size="sm" data-testid="button-save-notes">Save Notes</Button>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <h2 className="text-base sm:text-lg font-semibold">Notes & Instructions</h2>
+          <Button variant="outline" className="w-full sm:w-auto h-12" data-testid="button-save-notes">Save Notes</Button>
         </div>
         <Textarea 
           placeholder="e.g. 'Our business improves their online presence.'"
