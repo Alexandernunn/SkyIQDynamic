@@ -6,7 +6,7 @@ export default function ChatbotDemo() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6">
-            Try Our AI Chatbot
+            Explore Ways We Can Grow
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             Experience the power of our AI chatbot. Ask questions, explore features, and see how it can transform your customer interactions.
