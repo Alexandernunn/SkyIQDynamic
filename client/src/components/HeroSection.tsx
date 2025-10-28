@@ -42,8 +42,8 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-background/52 via-background/48 to-background/52" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/56 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/67 via-background/63 to-background/67" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/71 via-transparent to-transparent" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight whitespace-nowrap">
