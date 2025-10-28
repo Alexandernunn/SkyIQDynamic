@@ -22,35 +22,24 @@ export default function FloatingChatWidget() {
 
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-300">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 w-[90vw] sm:w-[400px] h-[80vh] sm:h-[85vh] max-h-[670px] min-h-[400px] flex flex-col">
-            <div className="bg-blue-600 text-white p-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <MessageCircle className="w-5 h-5" />
-                <div>
-                  <h3 className="font-semibold text-sm sm:text-base">SkyIQ Assistant</h3>
-                  <p className="text-xs text-blue-100">Online</p>
-                </div>
-              </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-blue-700 h-8 w-8"
-                aria-label="Close chat"
-              >
-                <X className="w-5 h-5" />
-              </Button>
-            </div>
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 w-[90vw] sm:w-[400px] h-[80vh] sm:h-[85vh] max-h-[670px] min-h-[400px] relative">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(false)}
+              className="absolute top-2 right-2 z-10 bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 h-8 w-8 rounded-full shadow-md"
+              aria-label="Close chat"
+            >
+              <X className="w-5 h-5" />
+            </Button>
             
-            <div className="flex-1 relative">
-              <iframe
-                src="https://demo.skyiq.cloud"
-                title="SkyIQ AI Chatbot"
-                className="absolute top-0 left-0 w-full h-full border-0"
-                allow="microphone; camera; autoplay"
-                loading="lazy"
-              />
-            </div>
+            <iframe
+              src="https://demo.skyiq.cloud"
+              title="SkyIQ AI Chatbot"
+              className="w-full h-full border-0 rounded-2xl"
+              allow="microphone; camera; autoplay"
+              loading="lazy"
+            />
           </div>
         </div>
       )}
