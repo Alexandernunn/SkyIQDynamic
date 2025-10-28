@@ -43,60 +43,56 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div 
-        className="mx-auto relative overflow-hidden border-8 border-white"
-        style={{ 
-          backgroundImage: `url(${backgroundImage})`, 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center',
-          maxWidth: 'calc(100% - 3rem)',
-          padding: '4rem 0'
-        }}
-      >
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Everything you need to know about SkyIQ's AI voice agents
-            </p>
-          </div>
+    <section 
+      className="py-24 relative overflow-hidden"
+      style={{ 
+        backgroundImage: `url(${backgroundImage})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'calc(50% + 35px) center'
+      }}
+    >
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Everything you need to know about SkyIQ's AI voice agents
+          </p>
+        </div>
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
-                  <AccordionTrigger 
-                    className="text-left font-semibold text-gray-900 hover:text-blue-600 transition-colors"
-                    data-testid={`faq-question-${index}`}
-                  >
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent 
-                    className="text-gray-600 leading-relaxed"
-                    data-testid={`faq-answer-${index}`}
-                  >
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
+                <AccordionTrigger 
+                  className="text-left font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+                  data-testid={`faq-question-${index}`}
+                >
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="text-gray-600 leading-relaxed"
+                  data-testid={`faq-answer-${index}`}
+                >
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-gray-600 mb-4">
-              Still have questions?
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
-              data-testid="button-contact-faq"
-            >
-              Get in Touch
-            </a>
-          </div>
+        <div className="mt-8 text-center">
+          <p className="text-gray-600 mb-4">
+            Still have questions?
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+            data-testid="button-contact-faq"
+          >
+            Get in Touch
+          </a>
         </div>
       </div>
     </section>
