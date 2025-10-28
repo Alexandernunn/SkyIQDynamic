@@ -21,7 +21,7 @@ export default function ChatbotDemo() {
         </div>
 
         <Card className="overflow-hidden p-0 border-2">
-          <div className="relative w-full" style={{ paddingBottom: '75%' }}>
+          <div className="relative w-full" style={{ paddingBottom: '50%' }}>
             <iframe
               src="https://demo.skyiq.cloud"
               title="SkyIQ AI Chatbot Demo"
