@@ -39,7 +39,7 @@ export default function FeatureGrid() {
     <section 
       className="py-24 px-6 bg-cover bg-center bg-no-repeat min-h-screen"
       style={{ 
-        backgroundImage: `url('/attached_assets/New Project (7)_1761626710286.jpg')`,
+        backgroundImage: `url('/attached_assets/xx12_1761627512805.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
