@@ -46,16 +46,7 @@ export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }
       <div className="absolute inset-0 bg-gradient-to-t from-background/66 via-transparent to-transparent" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div className="mb-12 flex justify-center">
-          <img 
-            src={skyiqLogo} 
-            alt="SkyIQ" 
-            className="h-24 md:h-32 w-auto"
-            data-testid="img-logo"
-          />
-        </div>
-        
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight whitespace-nowrap">
           <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
             {typedText}
           </span>
