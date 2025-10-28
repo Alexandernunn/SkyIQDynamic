@@ -1,9 +1,12 @@
-import { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-export default function FloatingChatWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+interface FloatingChatWidgetProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWidgetProps) {
 
   return (
     <>

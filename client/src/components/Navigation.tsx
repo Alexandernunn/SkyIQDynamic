@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import skyiqLogo from '@assets/skyiq-logo (1)_1761617042316.png';
 
-export default function Navigation({ onDemoClick }: { onDemoClick: () => void }) {
+export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemoClick: () => void; onAskAnythingClick: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -48,9 +48,9 @@ export default function Navigation({ onDemoClick }: { onDemoClick: () => void })
             <Button 
               variant="default" 
               data-testid="button-nav-start"
-              onClick={() => console.log('Get started clicked')}
+              onClick={onAskAnythingClick}
             >
-              Get Started
+              Ask Anything
             </Button>
           </div>
 
@@ -95,10 +95,10 @@ export default function Navigation({ onDemoClick }: { onDemoClick: () => void })
               className="w-full"
               onClick={() => {
                 setMobileMenuOpen(false);
-                console.log('Get started clicked');
+                onAskAnythingClick();
               }}
             >
-              Get Started
+              Ask Anything
             </Button>
           </div>
         )}
