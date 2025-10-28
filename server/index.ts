@@ -7,6 +7,7 @@ async function startDevServer() {
     server: {
       port: PORT,
       host: '0.0.0.0',
+      allowedHosts: ['.replit.dev', '.repl.co'],
     },
   });
   
