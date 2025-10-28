@@ -55,7 +55,7 @@ export default function FeatureGrid() {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="p-8 hover-elevate active-elevate-2 transition-all duration-300"
+              className="p-8 hover-elevate active-elevate-2 transition-all duration-300 bg-white/70 backdrop-blur-sm"
               data-testid={`feature-card-${index}`}
             >
               <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
