@@ -4,17 +4,17 @@ import chatbotCardBackground from '@assets/New Project (6)_1761625265054.jpg';
 
 export default function ChatbotDemo() {
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24 px-3 sm:px-4 lg:px-6 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-24 px-3 sm:px-4 lg:px-6 overflow-hidden bg-white dark:bg-background">
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center opacity-100"
         style={{ backgroundImage: `url(${chatbotCardBackground})` }}
       />
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 text-foreground">
             Explore Ways We Can Grow
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/70 max-w-2xl mx-auto px-2">
             Experience the power of our AI chatbot. Ask questions, explore features, and see how it can transform your customer interactions.
           </p>
         </div>
