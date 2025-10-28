@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { Phone, MessageSquare, Calendar, BarChart3, Zap, Shield, Bot } from 'lucide-react';
+import { Phone, MessageSquare, Calendar, BarChart3, Zap, Bot } from 'lucide-react';
 
 const features = [
   {
@@ -31,11 +31,6 @@ const features = [
     icon: Zap,
     title: 'Instant Setup',
     description: 'Get your AI agent live in minutes. No technical expertise required, no lengthy implementation process.'
-  },
-  {
-    icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Bank-level encryption and compliance ensure your customer data stays protected at all times.'
   }
 ];
 
