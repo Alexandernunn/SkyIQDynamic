@@ -32,15 +32,15 @@
 
   --sidebar-border: 214 32% 86%;
 
-  --sidebar-primary: 250 84% 54%;
+  --sidebar-primary: 201 100% 47%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 250 40% 92%;
+  --sidebar-accent: 201 40% 92%;
 
-  --sidebar-accent-foreground: 250 84% 25%;
+  --sidebar-accent-foreground: 201 84% 25%;
 
-  --sidebar-ring: 250 84% 54%;
+  --sidebar-ring: 201 100% 47%;
 
   --popover: 0 0% 95%;
 
@@ -48,7 +48,7 @@
 
   --popover-border: 214 32% 84%;
 
-  --primary: 250 84% 54%;
+  --primary: 201 100% 47%;
 
   --primary-foreground: 0 0% 100%;
 
@@ -60,17 +60,17 @@
 
   --muted-foreground: 215 16% 47%;
 
-  --accent: 250 40% 94%;
+  --accent: 201 40% 94%;
 
-  --accent-foreground: 250 84% 25%;
+  --accent-foreground: 201 84% 25%;
 
   --destructive: 0 84% 60%;
 
   --destructive-foreground: 0 0% 100%;
 
   --input: 214 32% 75%;
-  --ring: 250 84% 54%;
-  --chart-1: 250 84% 54%;
+  --ring: 201 100% 47%;
+  --chart-1: 201 100% 47%;
   --chart-2: 262 83% 58%;
   --chart-3: 204 94% 44%;
   --chart-4: 340 82% 52%;
@@ -150,15 +150,15 @@
 
   --sidebar-border: 217 33% 15%;
 
-  --sidebar-primary: 250 84% 60%;
+  --sidebar-primary: 201 100% 50%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 250 30% 16%;
+  --sidebar-accent: 201 30% 16%;
 
-  --sidebar-accent-foreground: 250 70% 85%;
+  --sidebar-accent-foreground: 201 70% 85%;
 
-  --sidebar-ring: 250 84% 60%;
+  --sidebar-ring: 201 100% 50%;
 
   --popover: 222 47% 13%;
 
@@ -166,7 +166,7 @@
 
   --popover-border: 217 33% 17%;
 
-  --primary: 250 84% 60%;
+  --primary: 201 100% 50%;
 
   --primary-foreground: 0 0% 100%;
 
@@ -178,17 +178,17 @@
 
   --muted-foreground: 217 25% 65%;
 
-  --accent: 250 30% 18%;
+  --accent: 201 30% 18%;
 
-  --accent-foreground: 250 70% 85%;
+  --accent-foreground: 201 70% 85%;
 
   --destructive: 0 72% 51%;
 
   --destructive-foreground: 0 0% 100%;
 
   --input: 217 33% 35%;
-  --ring: 250 84% 60%;
-  --chart-1: 250 84% 70%;
+  --ring: 201 100% 50%;
+  --chart-1: 201 100% 60%;
   --chart-2: 262 83% 75%;
   --chart-3: 204 94% 65%;
   --chart-4: 340 82% 67%;

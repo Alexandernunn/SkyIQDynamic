@@ -1,0 +1,105 @@
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { PhoneCall, PlayCircle } from 'lucide-react';
+import heroBackground from '@assets/generated_images/AI_technology_hero_background_784392fd.png';
+
+export default function HeroSection({ onDemoClick }: { onDemoClick: () => void }) {
+  const [typedText, setTypedText] = useState('');
+  const fullText = 'Never Miss a Call Again';
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const i = loopNum % 1;
+      const current = fullText;
+
+      setTypedText(
+        isDeleting
+          ? current.substring(0, typedText.length - 1)
+          : current.substring(0, typedText.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 50 : 150);
+
+      if (!isDeleting && typedText === current) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && typedText === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [typedText, isDeleting, loopNum, typingSpeed]);
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+      
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+          <PhoneCall className="w-4 h-4 text-primary" />
+          <span className="text-sm font-medium text-primary">AI Voice Agents</span>
+        </div>
+        
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
+            {typedText}
+          </span>
+          <span className="animate-pulse text-primary">|</span>
+        </h1>
+        
+        <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
+          Transform your business with AI-powered voice agents that handle calls 24/7. 
+          Capture every opportunity, close more deals, and scale without limits.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Button 
+            size="lg" 
+            className="text-lg px-8 h-14 min-w-[200px]"
+            data-testid="button-get-started"
+            onClick={() => console.log('Get Started clicked')}
+          >
+            Get Started Free
+          </Button>
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="text-lg px-8 h-14 min-w-[200px] backdrop-blur-sm bg-background/50"
+            data-testid="button-view-demo"
+            onClick={onDemoClick}
+          >
+            <PlayCircle className="w-5 h-5 mr-2" />
+            View Live Demo
+          </Button>
+        </div>
+        
+        <div className="mt-16 flex items-center justify-center gap-8 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span>24/7 Availability</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span>Instant Setup</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span>No Credit Card</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+    </section>
+  );
+}
