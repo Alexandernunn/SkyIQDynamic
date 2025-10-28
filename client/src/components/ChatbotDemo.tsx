@@ -23,7 +23,7 @@ export default function ChatbotDemo() {
           <Card className="overflow-hidden p-0 border-2 w-full max-w-lg">
             <div className="relative w-full h-[720px]">
               <iframe
-                src="https://demo.skyiq.cloud"
+                src="https://demo.skyiq.cloud/widget"
                 title="SkyIQ AI Chatbot Demo"
                 className="absolute top-0 left-0 w-full h-full"
                 allow="microphone; camera; autoplay"
