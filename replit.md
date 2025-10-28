@@ -45,6 +45,16 @@ Preferred communication style: Simple, everyday language.
 - Typing animation effects in hero section
 - Tabbed navigation within dashboard components
 - Mock data for demonstration purposes
+- Fully mobile-optimized with touch-friendly controls and scroll indicators
+
+**Mobile Optimization (October 2025)**
+- **Touch Targets**: All interactive elements meet or exceed 44px minimum (48px standard for primary actions)
+- **Scroll Indicators**: Animated "Swipe →" hints on tables that disappear after user interaction
+- **Responsive Sidebar**: Collapsible navigation with hamburger menu on mobile (w-72 for better touch experience)
+- **Larger Controls**: Navigation buttons (h-12), primary action buttons (h-12), form inputs (h-12), mobile toggle (48x48px)
+- **Stacked Layouts**: All button groups and headers stack vertically on mobile (flex-col sm:flex-row)
+- **Mobile-First Forms**: AI Agent test button (h-14), all inputs/selects sized for easy tapping
+- **Touch-Friendly Tables**: Horizontal scroll with visual indicators, no page-wide overflow
 
 ### Backend Architecture
 
