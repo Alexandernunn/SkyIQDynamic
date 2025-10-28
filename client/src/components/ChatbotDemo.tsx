@@ -7,7 +7,7 @@ export default function ChatbotDemo() {
     <section className="relative py-16 sm:py-20 lg:py-24 px-3 sm:px-4 lg:px-6 overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${chatbotBackground})` }}
+        style={{ backgroundImage: `url(${chatbotCardBackground})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-background/67 via-background/63 to-background/67" />
       <div className="absolute inset-0 bg-gradient-to-t from-background/71 via-transparent to-transparent" />
@@ -22,11 +22,8 @@ export default function ChatbotDemo() {
         </div>
 
         <div className="flex justify-center">
-          <Card 
-            className="overflow-hidden p-8 sm:p-12 md:p-16 border-2 w-full max-w-4xl bg-cover bg-center"
-            style={{ backgroundImage: `url(${chatbotCardBackground})` }}
-          >
-            <div className="relative w-full max-w-lg mx-auto h-[720px] rounded-lg overflow-hidden border border-border/50 shadow-2xl">
+          <Card className="overflow-hidden p-0 border-2 w-full max-w-lg">
+            <div className="relative w-full h-[720px]">
               <iframe
                 src="https://demo.skyiq.cloud"
                 title="SkyIQ AI Chatbot Demo"
