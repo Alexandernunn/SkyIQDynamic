@@ -58,21 +58,21 @@ export default function CallDashboardView() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold mb-1">Call Dashboard</h1>
-          <p className="text-sm text-muted-foreground">Monitor and manage your AI voice agent call history</p>
+          <h1 className="text-xl sm:text-2xl font-bold mb-1">Call Dashboard</h1>
+          <p className="text-xs sm:text-sm text-muted-foreground">Monitor and manage your AI voice agent call history</p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" data-testid="button-download">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
+          <Button variant="outline" size="sm" className="w-full sm:w-auto" data-testid="button-download">
             <Download className="w-4 h-4 mr-2" />
             Download CSV
           </Button>
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               placeholder="Search calls"
-              className="pl-9 w-64"
+              className="pl-9 w-full sm:w-48 md:w-64"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               data-testid="input-search"
@@ -81,8 +81,8 @@ export default function CallDashboardView() {
         </div>
       </div>
 
-      <div className="border rounded-lg overflow-hidden bg-card">
-        <table className="w-full">
+      <div className="border rounded-lg overflow-x-auto bg-card">
+        <table className="w-full min-w-[800px]">
           <thead className="bg-muted/50 border-b">
             <tr>
               <th className="text-left py-3 px-4 font-medium text-sm text-muted-foreground">Date & Time</th>

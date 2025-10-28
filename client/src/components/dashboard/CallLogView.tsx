@@ -19,8 +19,8 @@ export default function CallLogView() {
       </div>
 
       {/* Call Log Table */}
-      <div className="border rounded-lg overflow-hidden bg-card">
-        <table className="w-full">
+      <div className="border rounded-lg overflow-x-auto bg-card">
+        <table className="w-full min-w-[600px]">
           <thead className="bg-muted/50 border-b">
             <tr>
               <th className="text-left py-3 px-4 font-medium text-sm text-muted-foreground">Date</th>
