@@ -15,7 +15,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
-              AI-powered voice agents that help businesses capture every opportunity and scale without limits.
+              AI-powered voice agents and chatbots that help businesses capture every opportunity and scale without limits.
             </p>
           </div>
           
