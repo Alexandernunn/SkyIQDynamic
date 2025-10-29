@@ -29,13 +29,13 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
           <div className="3xl:hidden fixed inset-0 z-40 flex flex-col bg-white">
             {/* Blue Header with X button */}
             <div className="flex-shrink-0 bg-blue-600 px-4 py-3 mt-16 shadow-md">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center justify-center gap-3 relative">
                 <h2 className="text-lg font-semibold text-white">
-                  Ask me anything
+                  Ask Us Anything
                 </h2>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="flex-shrink-0 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+                  className="absolute right-0 flex-shrink-0 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
                   aria-label="Close chat"
                 >
                   <X className="w-5 h-5" />
