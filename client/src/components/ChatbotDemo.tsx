@@ -9,12 +9,12 @@ export default function ChatbotDemo() {
 
   return (
     <section 
-      className="md:py-16 md:py-20 lg:py-24 md:px-3 md:px-4 lg:px-6 bg-white bg-cover bg-left"
+      className="lg:py-16 lg:py-20 lg:py-24 lg:px-3 lg:px-4 lg:px-6 bg-white bg-cover bg-left"
       style={{ backgroundImage: `url(${chatbotSectionBackground})` }}
     >
-      <div className="md:max-w-6xl md:mx-auto">
+      <div className="lg:max-w-6xl lg:mx-auto">
         {/* Mobile Full Screen Layout */}
-        <div className="md:hidden fixed inset-0 z-50 flex flex-col bg-white">
+        <div className="lg:hidden fixed inset-0 z-50 flex flex-col bg-white">
           {/* Header with X button */}
           <div className="flex-shrink-0 bg-white px-4 py-4 border-b">
             <div className="flex items-center justify-between gap-3">
@@ -46,7 +46,7 @@ export default function ChatbotDemo() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 text-foreground">
               Explore Ways We Can Grow
