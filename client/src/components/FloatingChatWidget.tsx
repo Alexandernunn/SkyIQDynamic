@@ -28,14 +28,14 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
           {/* Mobile/Tablet Full Screen Layout (under 1100px) */}
           <div className="3xl:hidden fixed inset-0 z-40 flex flex-col bg-white">
             {/* Blue Header with X button */}
-            <div className="flex-shrink-0 bg-blue-600/90 backdrop-blur-sm px-4 py-3 mt-16 shadow-md">
+            <div className="flex-shrink-0 px-4 py-3 mt-16">
               <div className="flex items-center justify-center gap-3 relative">
-                <h2 className="text-lg font-semibold text-white">
+                <h2 className="text-lg font-semibold text-blue-600">
                   Ask Us Anything
                 </h2>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="absolute right-0 flex-shrink-0 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+                  className="absolute right-0 flex-shrink-0 bg-gray-200 hover:bg-gray-300 text-gray-700 hover:text-gray-900 p-2 rounded-full transition-colors"
                   aria-label="Close chat"
                 >
                   <X className="w-5 h-5" />
