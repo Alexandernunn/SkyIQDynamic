@@ -42,7 +42,7 @@ Preferred communication style: Simple, everyday language.
 **Key Frontend Features**
 - Marketing landing page with hero section, feature grid, and CTA sections
 - Interactive dashboard demo with multiple views (call dashboard, call log, AI agent configuration, bulk caller, business profile)
-- Appointment booking form modal with Supabase integration for lead capture
+- Consultation booking modal with Cal.com integration for appointment scheduling
 - Typing animation effects in hero section
 - Tabbed navigation within dashboard components
 - Mock data for demonstration purposes in dashboard
@@ -136,7 +136,9 @@ Preferred communication style: Simple, everyday language.
 - **Drizzle ORM** - TypeScript ORM for PostgreSQL
 - **@neondatabase/serverless** - Serverless PostgreSQL driver
 - **connect-pg-simple** - PostgreSQL session store for Express
-- **@supabase/supabase-js** - Supabase client for appointment form data persistence
+
+### Booking & Scheduling
+- **@calcom/embed-react** - Cal.com React components for consultation booking
 
 ### Development Tools
 - **Vite** - Frontend build tool and dev server
@@ -155,84 +157,69 @@ Preferred communication style: Simple, everyday language.
 - Path aliases (@/, @shared/, @assets/) for clean imports
 - Custom Tailwind theme with design tokens
 - Vite configured for SPA with Express middleware in development
-- Environment variables for Supabase configuration (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)
 
-## Supabase Integration (October 2025)
+## Cal.com Integration (October 2025)
 
 ### Overview
-The application uses Supabase as a backend-as-a-service for appointment booking and lead capture. This allows the frontend to remain fully static for Netlify deployment while still collecting form submissions.
+The application uses Cal.com for consultation booking and appointment scheduling. The Cal.com widget is embedded directly in the frontend, allowing visitors to book time slots without any backend infrastructure. This approach is perfect for Netlify deployment as it requires no server-side processing.
 
 ### Setup Instructions
 
-1. **Create Supabase Project**
-   - Visit [database.new](https://database.new) or [supabase.com/dashboard](https://supabase.com/dashboard)
-   - Create a new project and save your database password
+1. **Create Cal.com Account**
+   - Visit [cal.com](https://cal.com) and create a free account
+   - Connect your calendar (Google Calendar, Outlook, etc.)
+   - Set your availability preferences
 
-2. **Create Appointments Table**
-   Run this SQL in the Supabase SQL Editor:
-   ```sql
-   CREATE TABLE appointments (
-     id BIGSERIAL PRIMARY KEY,
-     name TEXT NOT NULL,
-     email TEXT NOT NULL,
-     phone TEXT NOT NULL,
-     business_type TEXT NOT NULL,
-     message TEXT,
-     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-   );
+2. **Create Event Type**
+   - Create a new event type (e.g., "30 Min Consultation")
+   - Configure duration, buffer times, and meeting details
+   - Get your booking link (format: `username/event-type`)
 
-   -- Enable Row Level Security
-   ALTER TABLE appointments ENABLE ROW LEVEL SECURITY;
-
-   -- Allow public to insert appointments
-   CREATE POLICY "Allow public insert"
-   ON public.appointments
-   FOR INSERT
-   TO anon
-   WITH CHECK (true);
-
-   -- Prevent public from reading appointments (admin only)
-   CREATE POLICY "Prevent public read"
-   ON public.appointments
-   FOR SELECT
-   TO anon
-   USING (false);
-   ```
-
-3. **Configure Environment Variables**
-   - Copy `.env.example` to `.env`
-   - Get your credentials from Supabase Dashboard → Project Settings → API
-   - Add your `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`
-
-4. **For Netlify Deployment**
-   - Add the same environment variables in Netlify Dashboard → Site Settings → Environment Variables
-   - Prefix variables with `VITE_` to make them available to the frontend build
+3. **Update Booking Link**
+   - Open `client/src/components/AppointmentFormModal.tsx`
+   - Update the `calLink` prop to your Cal.com link:
+     ```tsx
+     calLink="your-username/your-event-type"
+     ```
+   - Example: `calLink="skyiq/30min"`
 
 ### Architecture Details
 
 **Frontend-Only Approach**
-- Supabase client (`@supabase/supabase-js`) runs entirely in the browser
-- No backend server required for form submissions
+- Cal.com widget (`@calcom/embed-react`) runs entirely in the browser
+- No backend server or database required for appointment booking
 - Perfect for static site deployment on Netlify
+- All scheduling logic handled by Cal.com infrastructure
 
-**Security with Row Level Security (RLS)**
-- Anonymous users can INSERT appointments (submit forms)
-- Anonymous users cannot SELECT appointments (read others' data)
-- Only authenticated admin users can view submitted appointments
+**User Experience**
+- Visitors click "Book Consultation" button
+- Cal.com widget opens in a modal dialog
+- Month view calendar with dark theme and custom branding (#009AEE)
+- Automatic timezone detection and conversion
+- Email confirmations and reminders sent automatically
+- Rescheduling and cancellation support included
 
 **Files Structure**
-- `/client/src/lib/supabase.ts` - Supabase client configuration
-- `/client/src/components/AppointmentFormModal.tsx` - Appointment booking form component
-- `.env.example` - Template for environment variables
+- `/client/src/components/AppointmentFormModal.tsx` - Cal.com widget component
+- `.env.example` - Configuration notes for Cal.com setup
 
-**Form Fields**
-- Full Name
-- Email
-- Phone Number
-- Business Type (dropdown with industry options)
-- Message (optional)
+**Widget Configuration**
+- Theme: Dark mode with custom brand color (#009AEE)
+- Layout: Month view for easy date selection
+- Namespace: "30min" for this specific booking widget
+- Responsive design optimized for mobile and desktop
+
+### Features Included
+- ✅ Calendar availability display
+- ✅ Automatic timezone handling
+- ✅ Email confirmations and reminders
+- ✅ Reschedule and cancel functionality
+- ✅ Integration with Google Calendar, Outlook, etc.
+- ✅ No credit card required (Cal.com free tier)
+- ✅ Custom branding with your brand colors
 
 ### Deployment Considerations
-- Environment variables must be set in Netlify before deployment
-- Supabase free tier supports 500MB database and 50,000 monthly active users
-- Consider adding reCAPTCHA or rate limiting for production use
+- No environment variables needed for basic setup
+- Cal.com handles all scheduling and notification logic
+- Free tier supports unlimited event types and bookings
+- Consider upgrading to Cal.com paid plans for advanced features (teams, workflows, etc.)

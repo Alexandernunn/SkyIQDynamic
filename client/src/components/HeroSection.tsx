@@ -61,10 +61,10 @@ export default function HeroSection({ onDemoClick, onBookAppointment }: { onDemo
           <Button 
             size="lg" 
             className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 w-full sm:w-auto sm:min-w-[200px]"
-            data-testid="button-book-appointment"
+            data-testid="button-book-consultation"
             onClick={onBookAppointment}
           >
-            Book Appointment
+            Book Consultation
           </Button>
           <Button 
             size="lg" 
