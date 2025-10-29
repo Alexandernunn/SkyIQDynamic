@@ -6,7 +6,6 @@ import FloatingChatWidget from '@/components/FloatingChatWidget';
 import AppointmentFormModal from '@/components/AppointmentFormModal';
 import FeatureGrid from '@/components/FeatureGrid';
 import FAQSection from '@/components/FAQSection';
-import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -35,7 +34,6 @@ export default function Home() {
       </div>
       <FeatureGrid />
       <FAQSection onAskAnythingClick={openChat} />
-      <CTASection />
       <Footer />
       <FloatingChatWidget isOpen={chatOpen} setIsOpen={setChatOpen} />
       <AppointmentFormModal isOpen={appointmentOpen} setIsOpen={setAppointmentOpen} />
