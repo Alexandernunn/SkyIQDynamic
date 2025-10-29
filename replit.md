@@ -40,13 +40,16 @@ Preferred communication style: Simple, everyday language.
 - Custom elevation system using opacity-based overlays for hover/active states
 
 **Key Frontend Features**
-- Marketing landing page with hero section, feature grid, and CTA sections
+- Marketing landing page with hero section and feature grid
 - Interactive dashboard demo with multiple views (call dashboard, call log, AI agent configuration, bulk caller, business profile)
 - Consultation booking modal with Cal.com integration for appointment scheduling
 - Typing animation effects in hero section
 - Tabbed navigation within dashboard components
 - Mock data for demonstration purposes in dashboard
 - Fully mobile-optimized with touch-friendly controls and scroll indicators
+- Simplified navigation with Features and Demo tabs only
+- Centered footer with logo, description, and copyright
+- Smooth scroll navigation to key sections (Features, Demo)
 
 **Mobile Optimization (October 2025)**
 - **Touch Targets**: All interactive elements meet or exceed 44px minimum (48px standard for primary actions)

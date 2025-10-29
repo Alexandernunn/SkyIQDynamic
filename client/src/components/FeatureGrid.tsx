@@ -38,6 +38,7 @@ const features = [
 export default function FeatureGrid() {
   return (
     <section 
+      id="features"
       className="py-24 px-6 bg-cover bg-center bg-no-repeat min-h-screen"
       style={{ backgroundImage: `url(${robotBackground})` }}
     >
