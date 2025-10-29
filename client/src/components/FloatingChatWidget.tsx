@@ -50,7 +50,7 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
             <iframe
               src="https://demo.skyiq.cloud"
               title="SkyIQ AI Chatbot"
-              className="w-full flex-1 sm:w-[550px] sm:h-[90vh] sm:max-h-[800px] border-0 sm:rounded-2xl shadow-2xl"
+              className="w-full flex-1 sm:w-[400px] sm:h-[90vh] sm:max-h-[800px] border-0 sm:rounded-2xl shadow-2xl"
               allow="microphone; camera; autoplay"
               loading="lazy"
             />
@@ -60,7 +60,7 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="hidden sm:flex fixed bottom-6 right-[574px] bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 h-8 w-8 rounded-full shadow-md"
+              className="hidden sm:flex fixed bottom-6 right-[424px] bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 h-8 w-8 rounded-full shadow-md"
               aria-label="Close chat"
               data-testid="button-close-chat-desktop"
             >
