@@ -1,5 +1,6 @@
 import { X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useEffect } from 'react';
 
 interface FloatingChatWidgetProps {
   isOpen: boolean;
@@ -7,6 +8,17 @@ interface FloatingChatWidgetProps {
 }
 
 export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWidgetProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   return (
     <>
