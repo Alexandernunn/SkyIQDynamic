@@ -87,6 +87,10 @@ export default function HeroSection({ onDemoClick, onBookAppointment }: { onDemo
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span>Instant Setup</span>
           </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span>Live Reports</span>
+          </div>
         </div>
       </div>
       
