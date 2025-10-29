@@ -24,11 +24,11 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
       )}
 
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-300 flex items-start gap-2">
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 sm:left-auto sm:right-6 sm:translate-x-0 z-50 animate-in slide-in-from-bottom-4 duration-300 flex items-start gap-2">
           <iframe
             src="https://demo.skyiq.cloud"
             title="SkyIQ AI Chatbot"
-            className="w-[90vw] sm:w-[400px] h-[80vh] sm:h-[85vh] max-h-[670px] min-h-[400px] border-0 rounded-2xl shadow-2xl"
+            className="w-[85vw] sm:w-[400px] h-[70vh] sm:h-[85vh] max-w-[400px] max-h-[600px] min-h-[400px] border-0 rounded-2xl shadow-2xl"
             allow="microphone; camera; autoplay"
             loading="lazy"
           />
