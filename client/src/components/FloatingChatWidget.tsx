@@ -29,7 +29,7 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 sm:hidden animate-in fade-in duration-200" onClick={() => setIsOpen(false)} />
           
           {/* Chat container */}
-          <div className="fixed top-16 left-0 right-0 bottom-0 sm:inset-auto sm:top-auto sm:bottom-6 sm:right-6 z-50 animate-in slide-in-from-bottom-4 duration-300 flex flex-col">
+          <div className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 z-50 animate-in slide-in-from-bottom-4 duration-300 flex flex-col">
             {/* Mobile close bar */}
             <div className="sm:hidden bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 flex items-center justify-between shadow-lg">
               <div className="flex items-center gap-2">
