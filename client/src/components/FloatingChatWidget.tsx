@@ -24,24 +24,26 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
       )}
 
       {isOpen && (
-        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:top-auto sm:bottom-6 sm:left-auto sm:right-6 sm:translate-x-0 sm:translate-y-0 z-50 animate-in slide-in-from-bottom-4 duration-300 flex items-start gap-2">
-          <iframe
-            src="https://demo.skyiq.cloud"
-            title="SkyIQ AI Chatbot"
-            className="w-[80vw] sm:w-[400px] h-[85vh] sm:h-[85vh] max-w-[400px] max-h-[650px] border-0 rounded-2xl shadow-2xl"
-            allow="microphone; camera; autoplay"
-            loading="lazy"
-          />
+        <>
+          <div className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 z-50 animate-in slide-in-from-bottom-4 duration-300">
+            <iframe
+              src="https://demo.skyiq.cloud"
+              title="SkyIQ AI Chatbot"
+              className="w-full h-full sm:w-[400px] sm:h-[85vh] sm:max-h-[650px] border-0 sm:rounded-2xl shadow-2xl"
+              allow="microphone; camera; autoplay"
+              loading="lazy"
+            />
+          </div>
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(false)}
-            className="bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 h-8 w-8 rounded-full shadow-md flex-shrink-0"
+            className="fixed top-4 right-4 sm:top-auto sm:bottom-6 sm:right-[424px] bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 h-10 w-10 sm:h-8 sm:w-8 rounded-full shadow-md z-[60]"
             aria-label="Close chat"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6 sm:w-5 sm:h-5" />
           </Button>
-        </div>
+        </>
       )}
     </>
   );
