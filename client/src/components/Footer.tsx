@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <img 
@@ -20,22 +20,11 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Product</h4>
+            <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-features">Features</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-pricing">Pricing</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-demo">Demo</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-docs">Documentation</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-about">About</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-contact">Contact</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-privacy">Privacy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors" data-testid="link-terms">Terms</a></li>
+              <li><a href="#features" className="hover:text-foreground transition-colors" data-testid="link-features">Features</a></li>
+              <li><a href="#demo" className="hover:text-foreground transition-colors" data-testid="link-demo">Demo</a></li>
+              <li><a href="#pricing" className="hover:text-foreground transition-colors" data-testid="link-pricing">Pricing</a></li>
             </ul>
           </div>
         </div>
