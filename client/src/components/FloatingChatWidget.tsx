@@ -24,24 +24,57 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
       )}
 
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-300 flex items-start gap-2">
-          <iframe
-            src="https://demo.skyiq.cloud"
-            title="SkyIQ AI Chatbot"
-            className="w-[90vw] sm:w-[400px] h-[80vh] sm:h-[85vh] max-h-[670px] min-h-[400px] border-0 rounded-2xl shadow-2xl"
-            allow="microphone; camera; autoplay"
-            loading="lazy"
-          />
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsOpen(false)}
-            className="bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 h-8 w-8 rounded-full shadow-md flex-shrink-0"
-            aria-label="Close chat"
-          >
-            <X className="w-5 h-5" />
-          </Button>
-        </div>
+        <>
+          {/* Mobile/Tablet Full Screen Layout (under 2000px) */}
+          <div className="3xl:hidden fixed inset-0 z-50 flex flex-col bg-white">
+            {/* Header with X button */}
+            <div className="flex-shrink-0 bg-white px-4 py-4 border-b shadow-sm">
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-lg font-bold text-foreground">
+                  Ask me anything
+                </h2>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 p-2 rounded-full transition-colors"
+                  aria-label="Close chat"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+            
+            {/* Full Screen Iframe */}
+            <div className="flex-1 relative">
+              <iframe
+                src="https://demo.skyiq.cloud"
+                title="SkyIQ AI Chatbot"
+                className="absolute top-0 left-0 w-full h-full border-0"
+                allow="microphone; camera; autoplay"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          {/* Desktop Popup Layout (2000px and wider) */}
+          <div className="hidden 3xl:flex fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-300 items-start gap-2">
+            <iframe
+              src="https://demo.skyiq.cloud"
+              title="SkyIQ AI Chatbot"
+              className="w-[400px] h-[85vh] max-h-[670px] min-h-[400px] border-0 rounded-2xl shadow-2xl"
+              allow="microphone; camera; autoplay"
+              loading="lazy"
+            />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(false)}
+              className="bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 h-8 w-8 rounded-full shadow-md flex-shrink-0"
+              aria-label="Close chat"
+            >
+              <X className="w-5 h-5" />
+            </Button>
+          </div>
+        </>
       )}
     </>
   );
