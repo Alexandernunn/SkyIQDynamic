@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        '3xl': '2000px',
+        '3xl': '1100px',
       },
       borderRadius: {
         lg: ".5625rem", /* 9px */

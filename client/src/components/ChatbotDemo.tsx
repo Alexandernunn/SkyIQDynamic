@@ -14,16 +14,16 @@ export default function ChatbotDemo() {
     >
       <div className="3xl:max-w-6xl 3xl:mx-auto">
         {/* Mobile Full Screen Layout */}
-        <div className="3xl:hidden fixed inset-0 z-50 flex flex-col bg-white">
-          {/* Header with X button */}
-          <div className="flex-shrink-0 bg-white px-4 py-4 border-b">
+        <div className="3xl:hidden fixed inset-0 z-40 flex flex-col bg-white">
+          {/* Blue Header with X button */}
+          <div className="flex-shrink-0 bg-blue-600 px-4 py-3 mt-16 shadow-md">
             <div className="flex items-center justify-between gap-3">
-              <h2 className="text-xl font-bold text-foreground">
+              <h2 className="text-lg font-semibold text-white">
                 Explore Ways We Can Grow
               </h2>
               <button
                 onClick={handleClose}
-                className="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 p-2 rounded-full transition-colors"
+                className="flex-shrink-0 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
                 aria-label="Close demo"
                 data-testid="button-close-demo"
               >

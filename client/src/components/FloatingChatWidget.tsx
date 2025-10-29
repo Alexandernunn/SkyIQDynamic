@@ -25,17 +25,17 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
 
       {isOpen && (
         <>
-          {/* Mobile/Tablet Full Screen Layout (under 2000px) */}
-          <div className="3xl:hidden fixed inset-0 z-50 flex flex-col bg-white">
-            {/* Header with X button */}
-            <div className="flex-shrink-0 bg-white px-4 py-4 border-b shadow-sm">
+          {/* Mobile/Tablet Full Screen Layout (under 1100px) */}
+          <div className="3xl:hidden fixed inset-0 z-40 flex flex-col bg-white">
+            {/* Blue Header with X button */}
+            <div className="flex-shrink-0 bg-blue-600 px-4 py-3 mt-16 shadow-md">
               <div className="flex items-center justify-between gap-3">
-                <h2 className="text-lg font-bold text-foreground">
+                <h2 className="text-lg font-semibold text-white">
                   Ask me anything
                 </h2>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 p-2 rounded-full transition-colors"
+                  className="flex-shrink-0 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
                   aria-label="Close chat"
                 >
                   <X className="w-5 h-5" />
@@ -55,7 +55,7 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
             </div>
           </div>
 
-          {/* Desktop Popup Layout (2000px and wider) */}
+          {/* Desktop Popup Layout (1100px and wider) */}
           <div className="hidden 3xl:flex fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-300 items-start gap-2">
             <iframe
               src="https://demo.skyiq.cloud"
