@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="mb-8">
+        <div className="mb-8 text-center flex flex-col items-center">
           <div className="flex items-center gap-2 mb-4">
             <img 
               src={skyiqLogo} 
@@ -13,7 +13,7 @@ export default function Footer() {
               data-testid="img-footer-logo"
             />
           </div>
-          <p className="text-muted-foreground mb-4 max-w-md">
+          <p className="text-muted-foreground mb-4 max-w-md mx-auto">
             AI-powered voice agents and chatbots that help businesses capture every opportunity and scale without limits.
           </p>
         </div>

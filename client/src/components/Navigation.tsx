@@ -38,13 +38,6 @@ export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemo
             >
               Demo
             </a>
-            <a 
-              href="#pricing" 
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              data-testid="link-nav-pricing"
-            >
-              Pricing
-            </a>
           </div>
 
           <button 
@@ -75,13 +68,6 @@ export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemo
               }}
             >
               Demo
-            </a>
-            <a 
-              href="#pricing" 
-              className="block text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Pricing
             </a>
           </div>
         )}
