@@ -57,7 +57,7 @@ export default function ChatbotDemo() {
           </div>
 
           <div className="flex justify-center">
-            <Card className="overflow-hidden p-0 border-2 w-full max-w-lg">
+            <Card className="overflow-hidden p-0 border-2 w-full max-w-lg ml-5">
               <div className="relative w-full h-[720px]">
                 <iframe
                   src="https://demo.skyiq.cloud"
