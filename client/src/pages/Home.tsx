@@ -10,11 +10,16 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   const demoRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
   const [chatOpen, setChatOpen] = useState(false);
   const [appointmentOpen, setAppointmentOpen] = useState(false);
 
   const scrollToDemo = () => {
     demoRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToFeatures = () => {
+    featuresRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const openChat = () => {
@@ -27,12 +32,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <Navigation onDemoClick={scrollToDemo} onAskAnythingClick={openChat} />
+      <Navigation onDemoClick={scrollToDemo} onFeaturesClick={scrollToFeatures} onAskAnythingClick={openChat} />
       <HeroSection onDemoClick={scrollToDemo} onBookAppointment={openAppointmentForm} />
       <div ref={demoRef}>
         <DashboardDemo />
       </div>
-      <FeatureGrid />
+      <div ref={featuresRef}>
+        <FeatureGrid />
+      </div>
       <FAQSection onAskAnythingClick={openChat} />
       <Footer />
       <FloatingChatWidget isOpen={chatOpen} setIsOpen={setChatOpen} />

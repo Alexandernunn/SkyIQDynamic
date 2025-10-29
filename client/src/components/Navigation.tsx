@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import skyiqLogo from '@assets/skyiq-logo (1)_1761617042316.png';
 
-export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemoClick: () => void; onAskAnythingClick: () => void }) {
+export default function Navigation({ onDemoClick, onFeaturesClick, onAskAnythingClick }: { onDemoClick: () => void; onFeaturesClick: () => void; onAskAnythingClick: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -23,6 +23,10 @@ export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemo
             <a 
               href="#features" 
               className="text-muted-foreground hover:text-foreground transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                onFeaturesClick();
+              }}
               data-testid="link-nav-features"
             >
               Features
@@ -54,7 +58,11 @@ export default function Navigation({ onDemoClick, onAskAnythingClick }: { onDemo
             <a 
               href="#features" 
               className="block text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                onFeaturesClick();
+              }}
             >
               Features
             </a>
