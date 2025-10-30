@@ -95,7 +95,7 @@ export default function VoiceShowcaseSection() {
   return (
     <section 
       id="voice-showcase" 
-      className="py-20 bg-cover -mt-20"
+      className="py-20 bg-cover -mt-20 pt-1"
       style={{ 
         backgroundImage: `url(${backgroundImg})`,
         backgroundPosition: 'calc(50% + 3px) -18px'
