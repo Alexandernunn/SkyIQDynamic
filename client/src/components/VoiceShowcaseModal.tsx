@@ -7,7 +7,7 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Play, Loader2 } from 'lucide-react';
+import { Play, Loader2, CheckCircle2, XCircle } from 'lucide-react';
 import { apiRequest, queryClient } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 
@@ -51,7 +51,39 @@ const voices = [
 
 export default function VoiceShowcaseModal({ isOpen, setIsOpen }: VoiceShowcaseModalProps) {
   const [playingVoice, setPlayingVoice] = useState<string | null>(null);
+  const [testingApiKey, setTestingApiKey] = useState(false);
   const { toast } = useToast();
+
+  const handleTestApiKey = async () => {
+    try {
+      setTestingApiKey(true);
+      
+      const response = await fetch('/api/test-elevenlabs');
+      const data = await response.json();
+      
+      if (data.success) {
+        toast({
+          title: 'Success',
+          description: `API key is valid! Found ${data.voiceCount} voices available.`,
+        });
+      } else {
+        toast({
+          title: 'API Key Error',
+          description: data.error || 'Failed to validate API key',
+          variant: 'destructive',
+        });
+      }
+    } catch (error: any) {
+      console.error('Error testing API key:', error);
+      toast({
+        title: 'Error',
+        description: error.message || 'Failed to test API key',
+        variant: 'destructive',
+      });
+    } finally {
+      setTestingApiKey(false);
+    }
+  };
 
   const handlePlayVoice = async (voiceId: string, voiceName: string) => {
     try {
@@ -114,7 +146,29 @@ export default function VoiceShowcaseModal({ isOpen, setIsOpen }: VoiceShowcaseM
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 mt-4">
+        <div className="mt-4 mb-4 p-4 bg-muted rounded-lg border">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium">Test ElevenLabs API Key</p>
+              <p className="text-xs text-muted-foreground">Verify your API key is configured correctly</p>
+            </div>
+            <Button 
+              onClick={handleTestApiKey}
+              disabled={testingApiKey || playingVoice !== null}
+              variant="outline"
+              data-testid="button-test-api-key"
+            >
+              {testingApiKey ? (
+                <Loader2 className="w-4 h-4 animate-spin mr-2" />
+              ) : (
+                <CheckCircle2 className="w-4 h-4 mr-2" />
+              )}
+              {testingApiKey ? 'Testing...' : 'Test API Key'}
+            </Button>
+          </div>
+        </div>
+
+        <div className="space-y-4">
           {voices.map((voice) => (
             <div
               key={voice.id}
