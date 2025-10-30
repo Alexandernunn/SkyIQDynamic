@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Play, Loader2, Volume2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import backgroundImage from '@assets/background (1)_1761802767484.png';
+import backgroundImage from '@assets/ok22_1761802932741.png';
 
 const voices = [
   {
