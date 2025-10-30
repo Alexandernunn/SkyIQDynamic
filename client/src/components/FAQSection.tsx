@@ -41,9 +41,7 @@ export default function FAQSection({ onAskAnythingClick }: { onAskAnythingClick:
       style={{ 
         backgroundImage: `url(${backgroundImage})`, 
         backgroundSize: 'cover', 
-        backgroundPosition: 'calc(50% + 35px) center',
-        WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-        maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
+        backgroundPosition: 'calc(50% + 35px) center'
       }}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
