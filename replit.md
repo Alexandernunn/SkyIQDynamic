@@ -230,7 +230,7 @@ The application uses Cal.com for consultation booking and appointment scheduling
 ## ElevenLabs Voice Showcase (October 2025)
 
 ### Overview
-The application features a voice showcase modal that allows visitors to hear different AI voice options using ElevenLabs text-to-speech API. Clicking "Hear Possibilities" in the hero section opens a modal with 5 professional AI voices that demonstrate the platform's capabilities.
+The application features a voice showcase section that allows visitors to hear different AI voice options using ElevenLabs text-to-speech API. Clicking "Hear Possibilities" in the hero section smoothly scrolls down to an inline section at the bottom of the page with 5 professional AI voices that demonstrate the platform's capabilities.
 
 ### Setup Instructions
 
@@ -256,9 +256,10 @@ The application features a voice showcase modal that allows visitors to hear dif
 - Test endpoint: `GET /api/test-elevenlabs` (for debugging)
 
 **Frontend Component**
-- Modal component: `/client/src/components/VoiceShowcaseModal.tsx`
-- Triggered by "Hear Possibilities" button in hero section
-- Displays 5 AI voices with descriptions
+- Inline section: `/client/src/components/VoiceShowcaseSection.tsx`
+- Located at the bottom of the home page, below the FAQ section
+- Smooth scroll navigation from "Hear Possibilities" button in hero section
+- Displays 5 AI voices with descriptions in responsive card layout
 - Play buttons with loading states during generation
 - Toast notifications for errors
 - Automatic audio cleanup after playback
@@ -279,15 +280,17 @@ The application features a voice showcase modal that allows visitors to hear dif
 
 ### User Experience
 - Click "Hear Possibilities" button in hero section
-- Modal displays 5 voice options with descriptions
-- Click "Play" on any voice to hear a sample greeting
+- Page smoothly scrolls down to voice showcase section at the bottom
+- Section displays 5 voice options with descriptions in card layout
+- Click "Play Sample" on any voice to hear a sample greeting
 - Loading spinner shows during audio generation
 - Only one voice can play at a time
 - Error messages displayed via toast notifications
 
 ### Files Structure
-- `/client/src/components/VoiceShowcaseModal.tsx` - Voice showcase modal
+- `/client/src/components/VoiceShowcaseSection.tsx` - Voice showcase inline section
 - `/client/src/components/HeroSection.tsx` - Hero with "Hear Possibilities" button
+- `/client/src/pages/Home.tsx` - Home page with voice showcase section placement
 - `/server/index.ts` - Backend API endpoints for voice generation
 
 ### Features Included
