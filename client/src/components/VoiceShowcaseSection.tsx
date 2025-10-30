@@ -102,8 +102,8 @@ export default function VoiceShowcaseSection() {
       }}
     >
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-4">
-          <h3 className="text-4xl md:text-5xl font-light">Hear Your Team</h3>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold">Hear Your Team</h1>
         </div>
 
         <div className="space-y-4">
