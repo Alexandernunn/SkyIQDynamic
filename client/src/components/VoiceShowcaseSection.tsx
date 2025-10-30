@@ -99,6 +99,10 @@ export default function VoiceShowcaseSection() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">Hear Your Teammate</h2>
+        </div>
+
         <div className="space-y-4">
           {voices.map((voice) => (
             <div
