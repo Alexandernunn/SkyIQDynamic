@@ -87,6 +87,10 @@ export default function HeroSection({ onDemoClick, onBookAppointment, onVoiceSho
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span>Instant Setup</span>
           </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span>Human Support</span>
+          </div>
         </div>
       </div>
       
