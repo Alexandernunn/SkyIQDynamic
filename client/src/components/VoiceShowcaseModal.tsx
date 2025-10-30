@@ -1,0 +1,158 @@
+import { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Play, Loader2 } from 'lucide-react';
+import { apiRequest, queryClient } from '@/lib/queryClient';
+import { useToast } from '@/hooks/use-toast';
+
+interface VoiceShowcaseModalProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+const voices = [
+  {
+    id: 'Rachel',
+    name: 'Rachel',
+    description: 'Warm and friendly professional voice',
+    voiceId: 'rachel'
+  },
+  {
+    id: 'Adam',
+    name: 'Adam',
+    description: 'Deep and authoritative male voice',
+    voiceId: 'adam'
+  },
+  {
+    id: 'Bella',
+    name: 'Bella',
+    description: 'Soft and calming female voice',
+    voiceId: 'bella'
+  },
+  {
+    id: 'Antoni',
+    name: 'Antoni',
+    description: 'Clear and energetic male voice',
+    voiceId: 'antoni'
+  },
+  {
+    id: 'Elli',
+    name: 'Elli',
+    description: 'Young and vibrant female voice',
+    voiceId: 'elli'
+  },
+];
+
+export default function VoiceShowcaseModal({ isOpen, setIsOpen }: VoiceShowcaseModalProps) {
+  const [playingVoice, setPlayingVoice] = useState<string | null>(null);
+  const { toast } = useToast();
+
+  const handlePlayVoice = async (voiceId: string, voiceName: string) => {
+    try {
+      setPlayingVoice(voiceId);
+      
+      // Call backend to generate voice
+      const response = await fetch(`/api/voice-sample/${voiceId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: `Hello, I'm ${voiceName}. I can help answer calls and engage with your customers 24/7.`
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate voice sample');
+      }
+
+      const audioBlob = await response.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl);
+      
+      audio.onended = () => {
+        setPlayingVoice(null);
+        URL.revokeObjectURL(audioUrl);
+      };
+      
+      audio.onerror = () => {
+        setPlayingVoice(null);
+        URL.revokeObjectURL(audioUrl);
+        toast({
+          title: 'Playback Error',
+          description: 'Could not play the voice sample',
+          variant: 'destructive',
+        });
+      };
+
+      await audio.play();
+    } catch (error) {
+      console.error('Error playing voice:', error);
+      setPlayingVoice(null);
+      toast({
+        title: 'Error',
+        description: 'Failed to generate voice sample. Please try again.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  return (
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold">Hear the Possibilities</DialogTitle>
+          <DialogDescription>
+            Experience our AI voice options. Click play to hear each voice introduce themselves.
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="space-y-4 mt-4">
+          {voices.map((voice) => (
+            <div
+              key={voice.id}
+              className="flex items-center justify-between p-4 border rounded-lg hover:border-blue-500 transition-colors"
+              data-testid={`voice-card-${voice.id.toLowerCase()}`}
+            >
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg" data-testid={`text-voice-name-${voice.id.toLowerCase()}`}>
+                  {voice.name}
+                </h3>
+                <p className="text-sm text-muted-foreground" data-testid={`text-voice-description-${voice.id.toLowerCase()}`}>
+                  {voice.description}
+                </p>
+              </div>
+              <Button
+                onClick={() => handlePlayVoice(voice.voiceId, voice.name)}
+                disabled={playingVoice !== null}
+                className="ml-4"
+                data-testid={`button-play-${voice.id.toLowerCase()}`}
+              >
+                {playingVoice === voice.voiceId ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Play className="w-4 h-4" />
+                )}
+                <span className="ml-2">
+                  {playingVoice === voice.voiceId ? 'Playing...' : 'Play'}
+                </span>
+              </Button>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
+          <p className="text-sm text-center text-muted-foreground">
+            These are just a few examples. We offer many more voice options to match your brand's personality.
+          </p>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}

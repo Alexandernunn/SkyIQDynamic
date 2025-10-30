@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { PlayCircle } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import heroBackground from '@assets/cc_1761618392882.png';
 import skyiqLogo from '@assets/skyiq-logo (1)_1761617042316.png';
 
-export default function HeroSection({ onDemoClick, onBookAppointment }: { onDemoClick: () => void; onBookAppointment: () => void }) {
+export default function HeroSection({ onDemoClick, onBookAppointment, onVoiceShowcase }: { onDemoClick: () => void; onBookAppointment: () => void; onVoiceShowcase: () => void }) {
   const [typedText, setTypedText] = useState('');
   const fullText = 'Never Miss a Call Again';
   const [isDeleting, setIsDeleting] = useState(false);
@@ -70,11 +70,11 @@ export default function HeroSection({ onDemoClick, onBookAppointment }: { onDemo
             size="lg" 
             variant="outline" 
             className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 w-full sm:w-auto sm:min-w-[200px] backdrop-blur-sm bg-background/50"
-            data-testid="button-view-demo"
-            onClick={onDemoClick}
+            data-testid="button-hear-possibilities"
+            onClick={onVoiceShowcase}
           >
-            <PlayCircle className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-            View Live Demo
+            <Volume2 className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+            Hear Possibilities
           </Button>
         </div>
         
