@@ -24,14 +24,16 @@ export default function FloatingChatWidget({ isOpen, setIsOpen }: FloatingChatWi
     <>
       {!isOpen && (
         <div className="fixed bottom-6 right-6 z-50">
-          <button
+          <Button
             onClick={() => setIsOpen(true)}
-            className="pulse-animation bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-3 px-6 py-4 group"
+            size="lg"
+            className="pulse-animation rounded-full shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-3 px-6 py-4"
             aria-label="Open chat"
+            data-testid="button-ask-anything"
           >
             <MessageCircle className="w-6 h-6" />
             <span className="font-medium text-sm sm:text-base">Ask me anything</span>
-          </button>
+          </Button>
         </div>
       )}
 

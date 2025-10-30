@@ -81,7 +81,8 @@ export default function FAQSection({ onAskAnythingClick }: { onAskAnythingClick:
           </p>
           <Button
             onClick={onAskAnythingClick}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+            size="lg"
+            className="inline-flex items-center gap-2 px-6 py-3 font-semibold shadow-lg hover:shadow-xl"
             data-testid="button-contact-faq"
           >
             Ask Anything
