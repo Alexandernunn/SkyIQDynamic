@@ -51,26 +51,41 @@ This SkyIQ landing page is ready to deploy to Netlify as a static site!
 The `netlify.toml` file tells Netlify:
 - **Build command:** `npm run build`
 - **Publish directory:** `dist/public`
+- **Functions directory:** `netlify/functions` (for serverless functions)
 - **Redirects:** All routes go to index.html (for client-side routing)
 
-## Environment Variables (For Later)
+## Required Environment Variables
+
+**You must add these environment variables for the voice feature to work:**
+
+1. Go to **Site Settings → Environment Variables** in Netlify
+2. Add the following required variable:
+   - `ELEVENLABS_API_KEY` - Your ElevenLabs API key (get it from [elevenlabs.io](https://elevenlabs.io))
+
+### Optional Environment Variables (For Future Features)
 
 When you add Supabase and Stripe:
-1. Go to Site Settings → Environment Variables in Netlify
-2. Add your keys:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
    - `VITE_STRIPE_PUBLISHABLE_KEY`
 
-(All frontend env vars must start with `VITE_` in Vite projects)
+**Note:** Frontend env vars must start with `VITE_`, but backend function env vars (like `ELEVENLABS_API_KEY`) do not.
 
-## Your Site is Static!
+## Netlify Functions (Serverless Backend)
 
-Your SkyIQ landing page is now a 100% static site - no server needed! This means:
-- ✅ Fast loading
-- ✅ Free hosting on Netlify
-- ✅ No "broken link" errors
-- ✅ Works perfectly with Supabase + Stripe (frontend-only integrations)
+This application uses **Netlify Functions** for the voice showcase feature. These are serverless functions that run on-demand when users click the voice samples.
+
+The voice-sample function:
+- Lives in `netlify/functions/voice-sample.ts`
+- Uses your ElevenLabs API key from environment variables
+- Generates AI voice samples on-demand
+- Returns audio files to the frontend
+
+**Benefits:**
+- ✅ Fast loading with serverless architecture
+- ✅ Free tier includes 125k function requests/month
+- ✅ No server management needed
+- ✅ Automatic scaling
 
 ## Need Help?
 
