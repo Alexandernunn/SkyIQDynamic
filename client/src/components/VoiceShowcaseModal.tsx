@@ -69,7 +69,8 @@ export default function VoiceShowcaseModal({ isOpen, setIsOpen }: VoiceShowcaseM
       });
 
       if (!response.ok) {
-        throw new Error('Failed to generate voice sample');
+        const errorData = await response.json();
+        throw new Error(errorData.error || errorData.details || 'Failed to generate voice sample');
       }
 
       const audioBlob = await response.blob();
@@ -92,12 +93,12 @@ export default function VoiceShowcaseModal({ isOpen, setIsOpen }: VoiceShowcaseM
       };
 
       await audio.play();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error playing voice:', error);
       setPlayingVoice(null);
       toast({
         title: 'Error',
-        description: 'Failed to generate voice sample. Please try again.',
+        description: error.message || 'Failed to generate voice sample. Please try again.',
         variant: 'destructive',
       });
     }

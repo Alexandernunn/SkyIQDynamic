@@ -16,6 +16,37 @@ const ALLOWED_VOICES = new Set([
   'MF3mGyEYCl7XYWbV9V6O', // Elli
 ]);
 
+// Test ElevenLabs API key endpoint
+app.get('/api/test-elevenlabs', async (req, res) => {
+  try {
+    const apiKey = process.env.ELEVENLABS_API_KEY;
+    if (!apiKey) {
+      return res.status(500).json({ 
+        success: false, 
+        error: 'ElevenLabs API key not configured in environment variables' 
+      });
+    }
+
+    const client = new ElevenLabsClient({ apiKey });
+
+    // Try to get voices to verify the API key works
+    const voices = await client.voices.getAll();
+    
+    return res.json({ 
+      success: true, 
+      message: 'API key is valid',
+      voiceCount: voices.voices?.length || 0
+    });
+  } catch (error: any) {
+    console.error('ElevenLabs API test failed:', error);
+    return res.status(500).json({ 
+      success: false, 
+      error: error.message || 'Failed to connect to ElevenLabs API',
+      details: error.response?.data || error.toString()
+    });
+  }
+});
+
 // Voice sample API endpoint
 app.post('/api/voice-sample/:voiceId', async (req, res) => {
   try {
@@ -57,9 +88,15 @@ app.post('/api/voice-sample/:voiceId', async (req, res) => {
     }
     
     res.end();
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating voice:', error);
-    res.status(500).json({ error: 'Failed to generate voice sample' });
+    const errorMessage = error.message || 'Failed to generate voice sample';
+    const errorDetails = error.response?.data || error.toString();
+    console.error('Error details:', errorDetails);
+    res.status(500).json({ 
+      error: errorMessage,
+      details: errorDetails
+    });
   }
 });
 
