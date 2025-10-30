@@ -45,13 +45,14 @@ export default function VoiceShowcaseSection() {
     try {
       setPlayingVoice(voiceId);
       
-      // Call backend to generate voice
-      const response = await fetch(`/api/voice-sample/${voiceId}`, {
+      // Call Netlify function to generate voice
+      const response = await fetch('/.netlify/functions/voice-sample', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          voiceId,
           text: `Hello, I'm ${voiceName}. I can help answer calls and engage with your customers 24/7.`
         }),
       });
