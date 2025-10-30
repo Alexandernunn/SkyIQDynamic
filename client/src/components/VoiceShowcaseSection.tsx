@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Play, Loader2, Volume2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import backgroundImg from '@assets/background_1761801731711.png';
 
 const voices = [
   {
@@ -93,14 +92,7 @@ export default function VoiceShowcaseSection() {
   };
 
   return (
-    <section 
-      id="voice-showcase" 
-      className="py-20 p-[10px] pl-[30px] bg-cover"
-      style={{ 
-        backgroundImage: `url(${backgroundImg})`,
-        backgroundPosition: 'calc(50% + 15px) center'
-      }}
-    >
+    <section id="voice-showcase" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 mb-4">
