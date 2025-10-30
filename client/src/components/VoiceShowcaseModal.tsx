@@ -21,31 +21,31 @@ const voices = [
     id: 'Rachel',
     name: 'Rachel',
     description: 'Warm and friendly professional voice',
-    voiceId: 'rachel'
+    voiceId: '21m00Tcm4TlvDq8ikWAM'
   },
   {
     id: 'Adam',
     name: 'Adam',
     description: 'Deep and authoritative male voice',
-    voiceId: 'adam'
+    voiceId: 'pNInz6obpgDQGcFmaJgB'
   },
   {
     id: 'Bella',
     name: 'Bella',
     description: 'Soft and calming female voice',
-    voiceId: 'bella'
+    voiceId: 'EXAVITQu4vr4xnSDxMaL'
   },
   {
     id: 'Antoni',
     name: 'Antoni',
     description: 'Clear and energetic male voice',
-    voiceId: 'antoni'
+    voiceId: 'ErXwobaYiN019PkySvjV'
   },
   {
     id: 'Elli',
     name: 'Elli',
     description: 'Young and vibrant female voice',
-    voiceId: 'elli'
+    voiceId: 'MF3mGyEYCl7XYWbV9V6O'
   },
 ];
 

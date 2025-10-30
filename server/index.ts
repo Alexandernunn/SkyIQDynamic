@@ -7,11 +7,34 @@ const app = express();
 
 app.use(express.json());
 
+// Allowed voice IDs
+const ALLOWED_VOICES = new Set([
+  '21m00Tcm4TlvDq8ikWAM', // Rachel
+  'pNInz6obpgDQGcFmaJgB', // Adam
+  'EXAVITQu4vr4xnSDxMaL', // Bella
+  'ErXwobaYiN019PkySvjV', // Antoni
+  'MF3mGyEYCl7XYWbV9V6O', // Elli
+]);
+
 // Voice sample API endpoint
 app.post('/api/voice-sample/:voiceId', async (req, res) => {
   try {
     const { voiceId } = req.params;
     const { text } = req.body;
+
+    // Validate voice ID
+    if (!voiceId || !ALLOWED_VOICES.has(voiceId)) {
+      return res.status(400).json({ error: 'Invalid voice ID' });
+    }
+
+    // Validate text
+    if (!text || typeof text !== 'string' || text.length === 0) {
+      return res.status(400).json({ error: 'Text is required' });
+    }
+
+    if (text.length > 1000) {
+      return res.status(400).json({ error: 'Text must be less than 1000 characters' });
+    }
 
     const apiKey = process.env.ELEVENLABS_API_KEY;
     if (!apiKey) {
