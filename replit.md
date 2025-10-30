@@ -226,3 +226,82 @@ The application uses Cal.com for consultation booking and appointment scheduling
 - Cal.com handles all scheduling and notification logic
 - Free tier supports unlimited event types and bookings
 - Consider upgrading to Cal.com paid plans for advanced features (teams, workflows, etc.)
+
+## ElevenLabs Voice Showcase (October 2025)
+
+### Overview
+The application features a voice showcase modal that allows visitors to hear different AI voice options using ElevenLabs text-to-speech API. Clicking "Hear Possibilities" in the hero section opens a modal with 5 professional AI voices that demonstrate the platform's capabilities.
+
+### Setup Instructions
+
+1. **Get ElevenLabs API Key**
+   - Visit [elevenlabs.io](https://elevenlabs.io) and create an account
+   - Navigate to your profile settings to find your API key
+   - Free tier includes 10,000 characters per month
+
+2. **Configure Environment Variable**
+   - Add `ELEVENLABS_API_KEY` to your environment:
+     - **Replit**: Add to Secrets panel (lock icon in sidebar)
+     - **Netlify**: Add to Environment Variables in site settings
+   - The application will automatically detect and use the key
+
+### Architecture Details
+
+**Backend API**
+- Express endpoint: `POST /api/voice-sample/:voiceId`
+- Validates voice IDs against an allowlist of 5 supported voices
+- Validates text input (required, max 1000 characters)
+- Streams audio back as MP3 using ElevenLabs text-to-speech API
+- Comprehensive error handling with detailed error messages
+- Test endpoint: `GET /api/test-elevenlabs` (for debugging)
+
+**Frontend Component**
+- Modal component: `/client/src/components/VoiceShowcaseModal.tsx`
+- Triggered by "Hear Possibilities" button in hero section
+- Displays 5 AI voices with descriptions
+- Play buttons with loading states during generation
+- Toast notifications for errors
+- Automatic audio cleanup after playback
+
+**Supported Voices**
+1. **Rachel** (21m00Tcm4TlvDq8ikWAM) - Warm and friendly professional voice
+2. **Adam** (pNInz6obpgDQGcFmaJgB) - Deep and authoritative male voice
+3. **Bella** (EXAVITQu4vr4xnSDxMaL) - Soft and calming female voice
+4. **Antoni** (ErXwobaYiN019PkySvjV) - Clear and energetic male voice
+5. **Elli** (MF3mGyEYCl7XYWbV9V6O) - Young and vibrant female voice
+
+**Security Features**
+- Voice ID allowlist prevents unauthorized voice usage
+- Text length validation prevents abuse
+- API key stored securely in environment variables
+- Never exposes API key to frontend
+- Detailed error logging for debugging
+
+### User Experience
+- Click "Hear Possibilities" button in hero section
+- Modal displays 5 voice options with descriptions
+- Click "Play" on any voice to hear a sample greeting
+- Loading spinner shows during audio generation
+- Only one voice can play at a time
+- Error messages displayed via toast notifications
+
+### Files Structure
+- `/client/src/components/VoiceShowcaseModal.tsx` - Voice showcase modal
+- `/client/src/components/HeroSection.tsx` - Hero with "Hear Possibilities" button
+- `/server/index.ts` - Backend API endpoints for voice generation
+
+### Features Included
+- ✅ 5 professional AI voices
+- ✅ Real-time audio generation
+- ✅ Streaming audio playback
+- ✅ Loading states and error handling
+- ✅ Voice ID validation and security
+- ✅ Mobile-responsive modal
+- ✅ Accessible UI with proper ARIA labels
+
+### Deployment Considerations
+- **Required**: `ELEVENLABS_API_KEY` environment variable must be set
+- Free tier: 10,000 characters/month (approximately 250-300 voice samples)
+- Paid plans available for higher usage
+- Audio generated on-demand (not cached)
+- Each voice sample costs ~40 characters
