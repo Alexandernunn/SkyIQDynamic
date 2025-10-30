@@ -59,7 +59,7 @@ export default function FAQSection({ onAskAnythingClick }: { onAskAnythingClick:
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
                 <AccordionTrigger 
-                  className="text-left font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+                  className="text-left font-semibold text-gray-900 hover:text-primary transition-colors"
                   data-testid={`faq-question-${index}`}
                 >
                   {faq.question}
