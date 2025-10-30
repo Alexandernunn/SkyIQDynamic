@@ -95,12 +95,12 @@ export default function VoiceShowcaseSection() {
   return (
     <section 
       id="voice-showcase" 
-      className="py-20 bg-cover bg-center bg-no-repeat"
+      className="pt-32 pb-20 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Hear Your Teammate</h2>
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold">Hear Your Teammate</h1>
         </div>
 
         <div className="space-y-4">
